@@ -91,13 +91,6 @@ export default function Layout(props: any) {
         <main className={classes.content}>
           <Toolbar />
           {props.children}
-          <Box p={5}>
-            <Center>
-              <Typography variant="subtitle2">
-                Copyright © 2021 by Thiruppugazh Anbargal. All rights reserved.
-              </Typography>
-            </Center>
-          </Box>
         </main>
       </div>
     </>
