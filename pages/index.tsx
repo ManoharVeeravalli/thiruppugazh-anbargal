@@ -5,13 +5,20 @@ import {
   Grid,
   Typography,
 } from "@material-ui/core";
-import Carosal from "../components/carosal";
 import Layout from "../components/Layout";
 import Image from "next/image";
-import { Center, Heading, SubHeading } from "../components/common";
+import {
+  Center,
+  Heading,
+  SubHeading,
+  Metatags,
+  Carosal,
+  Copyright,
+} from "../components/common";
 
-import image1 from "../public/images/about/guru-min.webp";
-import image2 from "../public/images/about/guru-1-min.webp";
+import guru1 from "../public/images/about/guru-min.webp";
+import guru2 from "../public/images/about/guru-1-min.webp";
+import guru3 from "../public/images/about/guru-2-min.jpg";
 import image3 from "../public/images/about/about-guruji-3-min.webp";
 import image4 from "../public/images/about/about-guruji-4-min.webp";
 import image5 from "../public/images/about/about-guruji-5-min.webp";
@@ -32,7 +39,6 @@ import ramu5 from "../public/images/about/ramu/ramu_5-min.webp";
 import ramu6 from "../public/images/about/ramu/ramu_6-min.webp";
 import ramu7 from "../public/images/about/ramu/ramu_7-min.webp";
 import ramu8 from "../public/images/about/ramu/ramu_8-min.webp";
-import Metatags from "../components/Metataga";
 
 export default function Home() {
   return (
@@ -47,7 +53,7 @@ export default function Home() {
           <Grid container spacing={3}>
             <Grid item md={3}>
               <Center>
-                <Image src={image1} alt="guruji" />
+                <Image src={guru1} alt="guruji" />
               </Center>
             </Grid>
             <Grid item md={9}>
@@ -128,32 +134,41 @@ export default function Home() {
             </Grid>
             <Grid item md={5}>
               <Center>
-                <Image src={image2} alt="guruji" />
+                <Image src={guru2} alt="guruji" />
               </Center>
+            </Grid>
+          </Grid>
+          <Grid container spacing={3}>
+            <Grid item md={5}>
+              <Center>
+                <Image src={guru3} alt="guruji" />
+              </Center>
+            </Grid>
+            <Grid item md={7}>
+              <Typography paragraph>
+                His method of teaching and ability to bring out the best even in
+                the new comers and the un initiated has attracted several.His
+                ability to pour in the bhakthi bhaava, breaking up the words in
+                the right places , so that the thaalam just falls in the right
+                place effectively. He created music of very high quality and
+                bhakthi bhaava of the highest order that even the best student
+                would reproduce only 50 %. Even that would be a great
+                achievement.
+              </Typography>
+              <Typography paragraph>
+                His method of teaching and ability to bring out the best even in
+                the new comers and the un initiated has attracted several.His
+                ability to pour in the bhakthi bhaava, breaking up the words in
+                the right places , so that the thaalam just falls in the right
+                place effectively. He created music of very high quality and
+                bhakthi bhaava of the highest order that even the best student
+                would reproduce only 50 %. Even that would be a great
+                achievement.
+              </Typography>
             </Grid>
           </Grid>
           <Grid container>
             <Grid item>
-              <Typography paragraph>
-                His method of teaching and ability to bring out the best even in
-                the new comers and the un initiated has attracted several.His
-                ability to pour in the bhakthi bhaava, breaking up the words in
-                the right places , so that the thaalam just falls in the right
-                place effectively. He created music of very high quality and
-                bhakthi bhaava of the highest order that even the best student
-                would reproduce only 50 %. Even that would be a great
-                achievement.
-              </Typography>
-              <Typography paragraph>
-                His method of teaching and ability to bring out the best even in
-                the new comers and the un initiated has attracted several.His
-                ability to pour in the bhakthi bhaava, breaking up the words in
-                the right places , so that the thaalam just falls in the right
-                place effectively. He created music of very high quality and
-                bhakthi bhaava of the highest order that even the best student
-                would reproduce only 50 %. Even that would be a great
-                achievement.
-              </Typography>
               <Typography paragraph>
                 Thousands of young and old are spending their time usefully
                 learning and teaching THIRUPPUGAZH without whiling away their
@@ -1475,6 +1490,7 @@ export default function Home() {
           </Grid>
         </CardContent>
       </Card>
+      <Copyright />
     </Layout>
   );
 }

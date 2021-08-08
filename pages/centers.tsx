@@ -23,11 +23,17 @@ import Layout from "../components/Layout";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 import PhoneIcon from "@material-ui/icons/Phone";
 import { firestore } from "../lib/firebase";
-import { Center, Heading, IST, SubHeading } from "../components/common";
+import {
+  Center,
+  Heading,
+  IST,
+  SubHeading,
+  Metatags,
+  Copyright,
+} from "../components/common";
 import Image from "next/image";
 import image1 from "../public/images/other/1-min.jpg";
 import image2 from "../public/images/other/2-min.jpg";
-import Metatags from "../components/Metataga";
 
 export default function Centers(props: any) {
   return (
@@ -1312,6 +1318,7 @@ export default function Centers(props: any) {
           </Grid>
         </CardContent>
       </Card>
+      <Copyright />
     </Layout>
   );
 }

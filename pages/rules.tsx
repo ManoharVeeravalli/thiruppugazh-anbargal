@@ -14,9 +14,8 @@ import image1 from "../public/images/other/5-min.jpg";
 import image2 from "../public/images/rules/goldenRules-min.jpg";
 import image3 from "../public/images/other/9-min.png";
 import image4 from "../public/images/other/10-min.png";
-import { Center, Heading, SubHeading } from "../components/common";
+import { Center, Heading, SubHeading, Metatags, Copyright } from "../components/common";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import Metatags from "../components/Metataga";
 
 export default function Rules() {
   return (
@@ -225,6 +224,7 @@ export default function Rules() {
           </Grid>
         </CardContent>
       </Card>
+      <Copyright />
     </Layout>
   );
 }

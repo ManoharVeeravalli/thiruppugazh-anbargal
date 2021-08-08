@@ -13,3 +13,12 @@ body {
 .m-auto {
   margin: auto !important;
 }
+
+.btn-google img {
+  width: 30px;
+  margin-right: 10px;
+}
+
+.cursor-pointer {
+  cursor: pointer !important;
+}

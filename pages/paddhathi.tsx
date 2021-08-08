@@ -1,9 +1,8 @@
 import Layout from "../components/Layout";
 import { Card, CardContent, Grid, Typography } from "@material-ui/core";
 import Image from "next/image";
-import { Center, Heading, SubHeading } from "../components/common";
+import { Center, Heading, SubHeading, Metatags, Copyright } from "../components/common";
 import image1 from "../public/images/other/12-min.jpg";
-import Metatags from "../components/Metataga";
 export default function Paddahathi() {
   return (
     <Layout>
@@ -241,6 +240,7 @@ export default function Paddahathi() {
           </Grid>
         </CardContent>
       </Card>
+      <Copyright />
     </Layout>
   );
 }

@@ -25,8 +25,7 @@ import Layout from "../components/Layout";
 import { firestore } from "../lib/firebase";
 import EventIcon from "@material-ui/icons/Event";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import { Heading, IST } from "../components/common";
-import Metatags from "../components/Metataga";
+import { Copyright, Heading, IST, Metatags } from "../components/common";
 
 export default function Events(props: any) {
   const [value, setValue] = useState(0);
@@ -454,6 +453,7 @@ export default function Events(props: any) {
           </TabPanel>
         </CardContent>
       </Card>
+      <Copyright />
     </Layout>
   );
 }

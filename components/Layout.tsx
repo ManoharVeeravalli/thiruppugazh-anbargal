@@ -1,5 +1,9 @@
+import { useState, useEffect } from "react";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Drawer from "@material-ui/core/Drawer";
+import IconButton from "@material-ui/core/IconButton";
+import MenuIcon from "@material-ui/icons/Menu";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import List from "@material-ui/core/List";
@@ -9,11 +13,13 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import { useRouter } from "next/router";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { items } from "../lib/drawer";
 import Link from "next/link";
-import { Box, Paper } from "@material-ui/core";
+import { Avatar, Paper } from "@material-ui/core";
 import { grey } from "@material-ui/core/colors";
-import { Center } from "./common";
+import { auth } from "../lib/firebase";
+import { GoogleSignIn } from "./common";
 
 const drawerWidth = 340;
 
@@ -39,39 +45,98 @@ const useStyles = makeStyles((theme: Theme) =>
       flexGrow: 1,
       overflow: "auto",
       padding: theme.spacing(3),
+      [theme.breakpoints.down("md")]: {
+        padding: theme.spacing(1),
+      },
+    },
+    menuButton: {
+      marginRight: theme.spacing(2),
+    },
+    title: {
+      flexGrow: 1,
     },
   })
 );
 
 export default function Layout(props: any) {
   const classes = useStyles();
+  const [state, setState] = useState(false);
   const { asPath } = useRouter();
+  const matches = useMediaQuery("(min-width:960px)");
+  const [user] = useAuthState(auth);
+  useEffect(() => {
+    setState(false);
+  }, [matches]);
+
+  const toggleDrawer = (open: boolean) => () => {
+    setState(open);
+  };
+
   return (
     <>
       <div className={classes.root}>
         <header>
-          <AppBar position="fixed" className={classes.appBar}>
+          <AppBar position="fixed" className={classes.appBar} color={"default"}>
             <Toolbar>
-              <Typography variant="h6" noWrap>
+              {!matches && (
+                <IconButton
+                  edge="start"
+                  className={classes.menuButton}
+                  color="inherit"
+                  aria-label="menu"
+                  onClick={toggleDrawer(true)}
+                >
+                  <MenuIcon />
+                </IconButton>
+              )}
+
+              <Typography
+                variant="h6"
+                noWrap
+                component="h1"
+                className={classes.title}
+              >
                 Thiruppugazh Anbargal
               </Typography>
+              {!user && <GoogleSignIn />}
+              {user && (
+                <Link href={`/${user.uid}`} passHref>
+                  <Avatar
+                    alt={user.displayName ?? `Anonymous`}
+                    src={user.photoURL ?? ``}
+                    className="cursor-pointer"
+                  />
+                </Link>
+              )}
             </Toolbar>
           </AppBar>
         </header>
         <Drawer
-          className={classes.drawer}
-          variant="permanent"
-          classes={{
-            paper: classes.drawerPaper,
-          }}
+          className={matches ? classes.drawer : ``}
+          variant={matches ? `permanent` : `temporary`}
+          anchor="top"
+          open={state}
+          onClose={toggleDrawer(false)}
+          classes={
+            matches
+              ? {
+                  paper: classes.drawerPaper,
+                }
+              : {}
+          }
         >
-          <Toolbar />
+          {matches && <Toolbar />}
           <div className={classes.drawerContainer}>
             <Paper>
               <List>
                 {items.map(({ text, icon: Icon, link }) => (
-                  <Link href={link} passHref key={text} scroll={false}>
-                    <ListItem button selected={link === asPath} divider>
+                  <Link href={link} passHref key={text}>
+                    <ListItem
+                      button
+                      selected={link === asPath}
+                      divider
+                      onClick={toggleDrawer(false)}
+                    >
                       <ListItemIcon>
                         <Icon
                           color={link === asPath ? "primary" : "inherit"}

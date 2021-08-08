@@ -12,8 +12,7 @@ import ExcelJS from "exceljs";
 var FileSaver = require("file-saver");
 import Layout from "../components/Layout";
 import { firestore } from "../lib/firebase";
-import { Heading, IST } from "../components/common";
-import Metatags from "../components/Metataga";
+import { Copyright, Heading, IST, Metatags } from "../components/common";
 
 const HyperLink = (value: string, url: string) => {
   if (!value) {
@@ -172,6 +171,7 @@ export default function Songs(props: any) {
             </Grid>
           </CardContent>
         </Card>
+        <Copyright />
       </Layout>
     </>
   );

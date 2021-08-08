@@ -1,7 +1,6 @@
 import { Card, CardContent, Typography } from "@material-ui/core";
-import { Heading } from "../components/common";
+import { Copyright, Heading, Metatags } from "../components/common";
 import Layout from "../components/Layout";
-import Metatags from "../components/Metataga";
 
 export default function AboutUs() {
   return (
@@ -75,6 +74,7 @@ export default function AboutUs() {
           </Typography>
         </CardContent>
       </Card>
+      <Copyright />
     </Layout>
   );
 }

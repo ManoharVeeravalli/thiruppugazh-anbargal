@@ -5,7 +5,7 @@ import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
-import { Center, Heading, IST } from "../components/common";
+import { Center, Copyright, Heading, IST, Metatags } from "../components/common";
 import Image from "next/image";
 import Layout from "../components/Layout";
 import { firestore } from "../lib/firebase";
@@ -44,7 +44,6 @@ import image32 from "../public/images/valli-kalyanam/valli kalyanam_32-min.jpg";
 import image33 from "../public/images/valli-kalyanam/valli kalyanam_33-min.jpg";
 import image34 from "../public/images/valli-kalyanam/valli kalyanam_34-min.jpg";
 import image35 from "../public/images/valli-kalyanam/valli kalyanam_35-min.jpg";
-import Metatags from "../components/Metataga";
 
 const images: { [key: string]: StaticImageData } = {
   image1,
@@ -130,6 +129,7 @@ export default function ValliKalyanam(props: any) {
           </Grid>
         </CardContent>
       </Card>
+      <Copyright />
     </Layout>
   );
 }

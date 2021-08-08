@@ -39,8 +39,7 @@ import image26 from "../public/images/articles/Felicitation-26-min.jpg";
 import image27 from "../public/images/articles/Felicitation-27-min.jpg";
 
 import Layout from "../components/Layout";
-import { Center, Heading } from "../components/common";
-import Metatags from "../components/Metataga";
+import { Center, Copyright, Heading, Metatags } from "../components/common";
 
 export default function Articles() {
   return (
@@ -217,6 +216,7 @@ export default function Articles() {
           </Grid>
         </CardContent>
       </Card>
+      <Copyright />
     </Layout>
   );
 }

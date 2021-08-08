@@ -5,10 +5,8 @@ import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
-import { Heading, IST } from "../components/common";
-
+import { Copyright, Heading, IST, Metatags } from "../components/common";
 import Layout from "../components/Layout";
-import Metatags from "../components/Metataga";
 import { firestore } from "../lib/firebase";
 
 export default function Meanings(props: any) {
@@ -48,6 +46,7 @@ export default function Meanings(props: any) {
           </Grid>
         </CardContent>
       </Card>
+      <Copyright />
     </Layout>
   );
 }
