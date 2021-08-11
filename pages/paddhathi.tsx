@@ -1,7 +1,7 @@
 import Layout from "../components/Layout";
 import { Card, CardContent, Grid, Typography } from "@material-ui/core";
 import Image from "next/image";
-import { Center, Heading, SubHeading, Metatags, Copyright } from "../components/common";
+import { Center, Heading, SubHeading, Metatags } from "../components/common";
 import image1 from "../public/images/other/12-min.jpg";
 export default function Paddahathi() {
   return (
@@ -18,7 +18,7 @@ export default function Paddahathi() {
         <CardContent>
           <Heading text="Paddhathi Of A Thiruppugazh Isai Vazhipadu Set" />
           <Grid container>
-            <Grid item md={7}>
+            <Grid item md={7} xs={12}>
               <SubHeading text="Salient Features Of A Isai Vazhipadu" />
               <Typography paragraph>By Guruji Sri A.S.RAGHAVAN</Typography>
               <Typography paragraph>Bhaya Bhakti</Typography>
@@ -45,14 +45,14 @@ export default function Paddahathi() {
                 join this movement over the last 60 years.
               </Typography>
             </Grid>
-            <Grid item md={5}>
+            <Grid item md={5} xs={12}>
               <Center>
                 <Image src={image1} alt="guruji" />
               </Center>
             </Grid>
           </Grid>
           <Grid container>
-            <Grid item md={12}>
+            <Grid item md={12} xs={12}>
               <SubHeading text="The ‘Paddhathi’" />
               <ol>
                 <li>
@@ -240,7 +240,6 @@ export default function Paddahathi() {
           </Grid>
         </CardContent>
       </Card>
-      <Copyright />
     </Layout>
   );
 }

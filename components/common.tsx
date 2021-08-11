@@ -1,10 +1,10 @@
 import { Box, Button, Grid, Typography } from "@material-ui/core";
-import Carousel from "react-material-ui-carousel";
+import ExcelJS from "exceljs";
 import Image from "next/image";
-import banner1 from "../public/images/carosal/banner1.webp";
-import banner2 from "../public/images/carosal/banner2.png";
-import banner3 from "../public/images/carosal/banner3.webp";
-import banner4 from "../public/images/carosal/banner4.webp";
+// import banner1 from "../public/images/carosal/banner1.webp";
+// import banner2 from "../public/images/carosal/banner2.png";
+// import banner3 from "../public/images/carosal/banner3.webp";
+// import banner4 from "../public/images/carosal/banner4.webp";
 import Head from "next/head";
 import theme from "../lib/theme";
 import FacebookIcon from "@material-ui/icons/Facebook";
@@ -51,6 +51,7 @@ export function Copyright() {
           <FacebookIcon />
         </a>
       </Grid>
+      <br/>
       <Center>
         <Typography variant="caption">
           Copyright © 2021 by Thiruppugazh Anbargal. All rights reserved.
@@ -61,20 +62,7 @@ export function Copyright() {
 }
 
 export function Carosal() {
-  return (
-    <Carousel
-      className="w-100"
-      autoPlay
-      interval={3000}
-      fullHeightHover={false}
-      indicators={false}
-    >
-      <Image src={banner2} alt="banner" />
-      <Image src={banner1} alt="banner" />
-      <Image src={banner3} alt="banner" />
-      <Image src={banner4} alt="banner" />
-    </Carousel>
-  );
+  return <></>;
 }
 
 export function Metatags({
@@ -125,4 +113,69 @@ export function GoogleSignIn() {
       <Image src={google} alt="google sign in" />
     </Button>
   );
+}
+
+export function getWorkbook(selected: any[], songs: any[]) {
+  const workbook = new ExcelJS.Workbook();
+  const worksheet = workbook.addWorksheet("Selected Songs");
+  const selectedSongs: any[] = songs.filter((song) => {
+    return selected.includes(song.newNumber);
+  });
+  let width = 30;
+  worksheet.columns = [
+    { header: "Song Name", key: "songName", width },
+    { header: "New Number", key: "newNumber", width: 20 },
+    { header: "Old Number", key: "oldNumber", width: 20 },
+    { header: "Ragam", key: "ragam", width },
+    { header: "Thalam", key: "thalam", width },
+    { header: "Tamil Meaning", key: "tamilMeaning", width },
+    { header: "Meaning", key: "meaning", width },
+    { header: "Classify 1", key: "classify1", width },
+    { header: "Classify 2", key: "classify2", width },
+    { header: "Classify 3", key: "classify3", width },
+  ];
+  for (let i = 0; i < selectedSongs.length; i++) {
+    const row = worksheet.getRow(i + 2);
+    const song = selectedSongs[i];
+    for (let j = 0; j < worksheet.columns.length; j++) {
+      const column = worksheet.columns[j];
+      const cell = row.getCell(j + 1);
+      switch (column.key) {
+        case "songName":
+          cell.value = {
+            text: song.songName,
+            hyperlink: song.songUrl,
+          };
+          cell.font = {
+            color: { argb: "2B00FF" },
+          };
+          break;
+        case "thalam":
+          if (song.thalamUrl === "NOLINK") {
+            cell.value = song.thalam ?? `-`;
+          } else {
+            cell.value = {
+              text: song.thalam,
+              hyperlink: song.thalamUrl,
+            };
+            cell.font = {
+              color: { argb: "2B00FF" },
+            };
+          }
+          break;
+        case "tamilMeaning":
+          cell.value = {
+            text: song.tamilMeaning,
+            hyperlink: song.tamilMeaningUrl,
+          };
+          cell.font = {
+            color: { argb: "2B00FF" },
+          };
+          break;
+        default:
+          cell.value = column.key ? song[column.key] : ``;
+      }
+    }
+  }
+  return workbook;
 }

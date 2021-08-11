@@ -20,7 +20,7 @@ import {
   firestore,
   serverTimestamp,
 } from "../lib/firebase";
-import { Copyright, Heading, Metatags } from "../components/common";
+import { Heading, Metatags } from "../components/common";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -77,7 +77,7 @@ export default function Feedback(props: any) {
           {user && (
             <>
               <Grid container spacing={3}>
-                <Grid item md={12}>
+                <Grid item md={12} xs={12}>
                   <TextField
                     error={error}
                     onChange={(c) => {
@@ -143,7 +143,6 @@ export default function Feedback(props: any) {
           </List>
         </CardContent>
       </Card>
-      <Copyright />
     </Layout>
   );
 }

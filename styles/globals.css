@@ -22,3 +22,7 @@ body {
 .cursor-pointer {
   cursor: pointer !important;
 }
+
+.overflow-auto {
+  overflow: auto !important;
+}

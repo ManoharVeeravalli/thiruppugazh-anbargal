@@ -45,14 +45,13 @@ export default function Profile({ user }: any) {
                 src={user.photoUrl}
                 className={classes.large}
               />
-              <p>
-                <Typography variant="caption">
-                  <i>{user.emailId}</i>
-                </Typography>
-              </p>
               <Typography variant="h6" component="h1">
                 {user.username}
               </Typography>
+              <Typography variant="caption" component="p">
+                <i>{user.emailId}</i>
+              </Typography>
+              <br/>
               {user.uid === currentUser?.uid ? (
                 <Button variant="outlined" color="secondary" onClick={signOut}>
                   Sign Out

@@ -14,7 +14,7 @@ import image1 from "../public/images/other/5-min.jpg";
 import image2 from "../public/images/rules/goldenRules-min.jpg";
 import image3 from "../public/images/other/9-min.png";
 import image4 from "../public/images/other/10-min.png";
-import { Center, Heading, SubHeading, Metatags, Copyright } from "../components/common";
+import { Center, Heading, SubHeading, Metatags } from "../components/common";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 
 export default function Rules() {
@@ -32,7 +32,7 @@ export default function Rules() {
         <CardContent>
           <Heading text="Golden Rules, Message from Guruji" />
           <Grid container spacing={3}>
-            <Grid item md={7}>
+            <Grid item md={7} xs={12}>
               <List component="div" dense>
                 <ListItem>
                   <ListItemIcon>
@@ -93,14 +93,14 @@ export default function Rules() {
                 </ListItem>
               </List>
             </Grid>
-            <Grid item md={5}>
+            <Grid item md={5} xs={12}>
               <Center>
                 <Image src={image1} alt="guruji" />
               </Center>
             </Grid>
           </Grid>
           <Grid container>
-            <Grid item>
+            <Grid item xs={12}>
               <Center>
                 <Image src={image2} alt="guruji" />
               </Center>
@@ -108,11 +108,11 @@ export default function Rules() {
           </Grid>
           <br />
           <Grid container spacing={3}>
-            <Grid item md={12}>
+            <Grid item md={12} xs={12}>
               <SubHeading text="Message From Guruji" />
               <Typography paragraph>2001</Typography>
             </Grid>
-            <Grid item md={7}>
+            <Grid item md={7} xs={12}>
               <Typography paragraph>
                 <strong>
                   My humble namaskarams to all anbargal who teach Thiruppugazh,
@@ -161,14 +161,14 @@ export default function Rules() {
                 mind. Murugan will still bless them
               </Typography>
             </Grid>
-            <Grid item md={5}>
+            <Grid item md={5} xs={12}>
               <Center>
                 <Image src={image3} alt="guruji" />
               </Center>
             </Grid>
           </Grid>
           <Grid container spacing={3}>
-            <Grid item md={7}>
+            <Grid item md={7} xs={12}>
               <Typography paragraph>
                 So let all those who learn, teach, listen and sing Thiruppugazh
                 .Understand this and get the blessings of Murugan
@@ -216,7 +216,7 @@ export default function Rules() {
                 selflessness will never go in vain.
               </Typography>
             </Grid>
-            <Grid item md={5}>
+            <Grid item md={5} xs={12}>
               <Center>
                 <Image src={image4} alt="guruji" />
               </Center>
@@ -224,7 +224,6 @@ export default function Rules() {
           </Grid>
         </CardContent>
       </Card>
-      <Copyright />
     </Layout>
   );
 }

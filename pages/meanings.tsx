@@ -5,7 +5,7 @@ import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
-import { Copyright, Heading, IST, Metatags } from "../components/common";
+import { Heading, IST, Metatags } from "../components/common";
 import Layout from "../components/Layout";
 import { firestore } from "../lib/firebase";
 
@@ -17,7 +17,7 @@ export default function Meanings(props: any) {
         <CardContent>
           <Heading text="All Songs With Meaning" />
           <Grid container>
-            <Grid item md={12}>
+            <Grid item md={12} xs={12}>
               <TableContainer>
                 <Table>
                   <TableHead>
@@ -46,7 +46,6 @@ export default function Meanings(props: any) {
           </Grid>
         </CardContent>
       </Card>
-      <Copyright />
     </Layout>
   );
 }

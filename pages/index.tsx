@@ -7,14 +7,7 @@ import {
 } from "@material-ui/core";
 import Layout from "../components/Layout";
 import Image from "next/image";
-import {
-  Center,
-  Heading,
-  SubHeading,
-  Metatags,
-  Carosal,
-  Copyright,
-} from "../components/common";
+import { Center, Heading, SubHeading, Metatags } from "../components/common";
 
 import guru1 from "../public/images/about/guru-min.webp";
 import guru2 from "../public/images/about/guru-1-min.webp";
@@ -45,9 +38,7 @@ export default function Home() {
     <Layout>
       <Metatags />
       <Card>
-        <CardActionArea>
-          <Carosal />
-        </CardActionArea>
+        {/* <CardActionArea><Carosal /></CardActionArea> */}
         <CardContent>
           <Heading text="About Guruji" />
           <Grid container spacing={3}>
@@ -217,7 +208,7 @@ export default function Home() {
             </Grid>
           </Grid>
           <Grid container spacing={3}>
-            <Grid item md={12}>
+            <Grid item md={12} xs={12}>
               <SubHeading text="Experiences of Sri N Subramanian & Smt Saraswati" />
             </Grid>
             <Grid item md={5}>
@@ -286,7 +277,7 @@ export default function Home() {
             </Grid>
           </Grid>
           <Grid container spacing={3}>
-            <Grid item md={12}>
+            <Grid item md={12} xs={12}>
               <SubHeading text="Experiences Of Sri N Ramamurthi with Guruji" />
             </Grid>
             <Grid item md={5}>
@@ -318,7 +309,7 @@ export default function Home() {
                 மகிமைகள் வெளிப்படுகின்றன.
               </Typography>
             </Grid>
-            <Grid item md={12}>
+            <Grid item md={12} xs={12}>
               <Typography paragraph>
                 கணக்கு வழக்கு,நிதானம்,பொறுமை,சங்கீதம் அறியாத அன்பர்களை
                 ராகங்களுடன் பாட வைத்தது,மாணவர்களை ஆசானாக்கியது,குருஜி அஷ்டாங்க
@@ -405,7 +396,7 @@ export default function Home() {
             </Grid>
           </Grid>
           <Grid container spacing={3}>
-            <Grid item md={12}>
+            <Grid item md={12} xs={12}>
               <SubHeading text="இலண்டன் சென்றோம்" />
               <SubHeading text="(ஒரு பயணக்கட்டுரை)" />
               <Typography paragraph>ஜிக்க</Typography>
@@ -452,7 +443,7 @@ export default function Home() {
             </Grid>
           </Grid>
           <Grid container spacing={3}>
-            <Grid item md={12}>
+            <Grid item md={12} xs={12}>
               <SubHeading text="6-9-80 : - சனிக்கிழமை" />
             </Grid>
             <Grid item md={7}>
@@ -581,10 +572,10 @@ export default function Home() {
             </Grid>
           </Grid>
           <Grid container>
-            <Grid item md={12}>
+            <Grid item md={12} xs={12}>
               <SubHeading text="7-9-80 : - ஞாயிற்றுக்கிழமை" />
             </Grid>
-            <Grid item md={12}>
+            <Grid item md={12} xs={12}>
               <Typography paragraph>
                 பிற்பகல் திரு. கனகசபை அவர்கள் எங்களுக்கு இலண்டன் நகரத்திலுள்ள
                 முக்கிய இடங்களைக் காண்பிப்பதற்காக தனது காரில் கொண்டு செல்ல
@@ -632,7 +623,7 @@ export default function Home() {
             </Grid>
           </Grid>
           <Grid container spacing={3}>
-            <Grid item md={12}>
+            <Grid item md={12} xs={12}>
               <SubHeading text="7-9-80 : - ஞாயிற்றுக்கிழம" />
             </Grid>
             <Grid item md={5}>
@@ -694,7 +685,7 @@ export default function Home() {
             </Grid>
           </Grid>
           <Grid container spacing={3}>
-            <Grid item md={12}>
+            <Grid item md={12} xs={12}>
               <SubHeading text="8-9-80 : - திங்கட் கிழம" />
             </Grid>
             <Grid item md={5}>
@@ -1490,7 +1481,6 @@ export default function Home() {
           </Grid>
         </CardContent>
       </Card>
-      <Copyright />
     </Layout>
   );
 }

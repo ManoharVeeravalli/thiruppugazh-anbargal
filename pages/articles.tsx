@@ -39,7 +39,7 @@ import image26 from "../public/images/articles/Felicitation-26-min.jpg";
 import image27 from "../public/images/articles/Felicitation-27-min.jpg";
 
 import Layout from "../components/Layout";
-import { Center, Copyright, Heading, Metatags } from "../components/common";
+import { Center, Heading, Metatags } from "../components/common";
 
 export default function Articles() {
   return (
@@ -49,7 +49,7 @@ export default function Articles() {
         <CardContent>
           <Heading text="Articles" />
           <Grid container>
-            <Grid item md={12}>
+            <Grid item md={12} xs={12}>
               <Accordion defaultExpanded>
                 <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                   <Typography>Felicitation&apos;s to Guruji </Typography>
@@ -216,7 +216,6 @@ export default function Articles() {
           </Grid>
         </CardContent>
       </Card>
-      <Copyright />
     </Layout>
   );
 }

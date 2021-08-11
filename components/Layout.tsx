@@ -10,16 +10,17 @@ import List from "@material-ui/core/List";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import ListItem from "@material-ui/core/ListItem";
+import CloseIcon from "@material-ui/icons/Close";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import { useRouter } from "next/router";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { items } from "../lib/drawer";
 import Link from "next/link";
-import { Avatar, Paper } from "@material-ui/core";
+import { Avatar, Box, Grid, Paper } from "@material-ui/core";
 import { grey } from "@material-ui/core/colors";
 import { auth } from "../lib/firebase";
-import { GoogleSignIn } from "./common";
+import { Copyright, GoogleSignIn } from "./common";
 
 const drawerWidth = 340;
 
@@ -128,6 +129,31 @@ export default function Layout(props: any) {
           {matches && <Toolbar />}
           <div className={classes.drawerContainer}>
             <Paper>
+              {!matches && (
+                <Box p={1}>
+                  <Grid
+                    container
+                    justifyContent="space-between"
+                    alignItems="center"
+                  >
+                    <Grid item>
+                      <Typography
+                        variant="h6"
+                        noWrap
+                        component="h1"
+                        className={classes.title}
+                      >
+                        Thiruppugazh Anbargal
+                      </Typography>
+                    </Grid>
+                    <Grid item>
+                      <IconButton onClick={toggleDrawer(false)}>
+                        <CloseIcon />
+                      </IconButton>
+                    </Grid>
+                  </Grid>
+                </Box>
+              )}
               <List>
                 {items.map(({ text, icon: Icon, link }) => (
                   <Link href={link} passHref key={text}>
@@ -156,6 +182,7 @@ export default function Layout(props: any) {
         <main className={classes.content}>
           <Toolbar />
           {props.children}
+          <Copyright />
         </main>
       </div>
     </>

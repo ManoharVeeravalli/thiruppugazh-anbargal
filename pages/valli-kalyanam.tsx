@@ -5,7 +5,7 @@ import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
-import { Center, Copyright, Heading, IST, Metatags } from "../components/common";
+import { Center, Heading, IST, Metatags } from "../components/common";
 import Image from "next/image";
 import Layout from "../components/Layout";
 import { firestore } from "../lib/firebase";
@@ -90,8 +90,8 @@ export default function ValliKalyanam(props: any) {
       <Card>
         <CardContent>
           <Heading text="Valli Kalyanam" />
-          <Grid container>
-            <Grid item md={12}>
+          <Grid container spacing={1}>
+            <Grid item md={12} xs={12} className="overflow-auto">
               <TableContainer>
                 <Table>
                   <TableHead>
@@ -119,7 +119,7 @@ export default function ValliKalyanam(props: any) {
             </Grid>
             {Object.keys(images).map((key) => {
               return (
-                <Grid item md={12} key={key}>
+                <Grid item md={12} xs={12} key={key}>
                   <Center>
                     <Image src={images[key]} alt="guruji" />
                   </Center>
@@ -129,7 +129,6 @@ export default function ValliKalyanam(props: any) {
           </Grid>
         </CardContent>
       </Card>
-      <Copyright />
     </Layout>
   );
 }
