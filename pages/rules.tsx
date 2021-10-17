@@ -32,7 +32,7 @@ export default function Rules() {
         <CardContent>
           <Heading text="Golden Rules, Message from Guruji" />
           <Grid container spacing={3}>
-            <Grid item md={7} xs={12}>
+            <Grid item xs={12}>
               <List component="div" dense>
                 <ListItem>
                   <ListItemIcon>
@@ -93,11 +93,11 @@ export default function Rules() {
                 </ListItem>
               </List>
             </Grid>
-            <Grid item md={5} xs={12}>
+            {/* <Grid item md={5} xs={12}>
               <Center>
                 <Image src={image1} alt="guruji" />
               </Center>
-            </Grid>
+            </Grid> */}
           </Grid>
           <Grid container>
             <Grid item xs={12}>

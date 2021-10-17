@@ -68,9 +68,9 @@ export const items = [
     link: `/valli-kalyanam`,
   },
   {
-    text: `Bhajans`,
+    text: `Virtual Bhajans`,
     icon: FolderIcon,
-    link: `/bhajans`,
+    link: `/virtual-bhajans`,
   },
   {
     text: `Articles`,

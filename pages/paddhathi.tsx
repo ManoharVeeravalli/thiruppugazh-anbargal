@@ -145,18 +145,7 @@ export default function Paddahathi() {
                   </Typography>
                 </li>
                 <li>
-                  <Typography paragraph>Podu padalgal 422 to 493</Typography>
-                </li>
-                <li>
-                  <Typography paragraph>
-                    Panchabootha sthalam No; 422 to 493
-                  </Typography>
-                </li>
-                <li>
-                  <Typography paragraph>
-                    Kundruthoradal kumaranukku araharohara Solai malai
-                    kizhavanukku araharohara
-                  </Typography>
+                  <Typography paragraph>Podu padalgal 323 to 421</Typography>
                 </li>
                 <li>
                   <Typography paragraph>

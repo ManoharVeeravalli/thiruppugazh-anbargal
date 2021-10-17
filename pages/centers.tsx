@@ -1313,7 +1313,8 @@ function ContactPersons({
 }
 
 export async function getStaticProps() {
-  const collection = await firestore.collection("phoneNumbers").get();
+  const collection = await firestore.collection("phoneNumbers")
+  .orderBy("state", "asc").get();
   return {
     props: { contacts: collection.docs.map((doc) => doc.data()) },
     revalidate: IST,
