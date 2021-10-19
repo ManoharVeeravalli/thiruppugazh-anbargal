@@ -1,11 +1,10 @@
-import { Card, CardContent, Grid } from "@material-ui/core";
+import { Card, CardContent, Grid, Typography } from "@material-ui/core";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
-import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
-import { Heading, IST, Metatags } from "../components/common";
+import { extractQueryParams, Heading, IST, Metatags } from "../components/common";
 
 import Layout from "../components/Layout";
 import { firestore } from "../lib/firebase";
@@ -21,21 +20,48 @@ export default function Bhajans(props: any) {
             <Grid item md={12} xs={12}>
               <TableContainer>
                 <Table>
-                  <TableHead>
-                    <TableRow>
-                      <TableCell component="th">#</TableCell>
-                      <TableCell component="th">Name</TableCell>
-                    </TableRow>
-                  </TableHead>
                   <TableBody>
                     {props?.list?.map(({ name, url }: any, i: number) => {
+                      const params = extractQueryParams(url);
+                      let cell = (
+                        <a href={url} target="_blank" rel="noreferrer">
+                          {name}
+                        </a>
+                      );
+                      if (params.has('v')) {
+                        cell = (
+                          <iframe
+                            className="bhajans"
+                            src={`https://www.youtube.com/embed/${params.get('v')}`}
+                            title="YouTube video player"
+                            frameBorder={0}
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                          ></iframe>
+                        );
+                      } else if (params.has('list')) {
+                        cell = (
+                          <iframe
+                            className="bhajans"
+                            src={`https://www.youtube.com/embed/videoseries?list=${params.get('list')}`}
+                            title="YouTube video player"
+                            frameBorder={0}
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                          ></iframe>
+                        );
+                      }
                       return (
                         <TableRow key={i}>
-                          <TableCell>{i + 1}</TableCell>
                           <TableCell>
-                            <a href={url} target="_blank" rel="noreferrer">
+                            <Typography
+                              gutterBottom
+                              variant="h5"
+                              component="h2"
+                            >
                               {name}
-                            </a>
+                            </Typography>
+                            {cell}
                           </TableCell>
                         </TableRow>
                       );

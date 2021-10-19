@@ -175,3 +175,12 @@ export function getWorkbook(selected: any[], songs: any[]) {
   }
   return workbook;
 }
+
+export function extractQueryParams(url: string) {
+  const map: Map<string, string> = new Map();
+  const query = url.split("?")[1]?.split("&");
+  for (let param of query ?? []) {
+    map.set(param.split('=')[0], param.split('=')[1]);
+  }
+  return map;
+}

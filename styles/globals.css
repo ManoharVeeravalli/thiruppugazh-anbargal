@@ -26,3 +26,14 @@ body {
 .overflow-auto {
   overflow: auto !important;
 }
+
+iframe.bhajans {
+  width: 600px;
+  height: 350px;
+}
+
+@media only screen and (max-width: 650px) {
+  iframe.bhajans {
+    width: 100%;
+  }
+}
