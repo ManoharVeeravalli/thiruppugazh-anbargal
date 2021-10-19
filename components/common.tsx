@@ -1,17 +1,13 @@
 import { Box, Button, Grid, Typography } from "@material-ui/core";
 import ExcelJS from "exceljs";
 import Image from "next/image";
-// import banner1 from "../public/images/carosal/banner1.webp";
-// import banner2 from "../public/images/carosal/banner2.png";
-// import banner3 from "../public/images/carosal/banner3.webp";
-// import banner4 from "../public/images/carosal/banner4.webp";
 import Head from "next/head";
 import theme from "../lib/theme";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import google from "../public/google.png";
 import { auth, firestore, googleAuthProvider } from "../lib/firebase";
 
-export const IST = 86400;
+export const IST = process.env.IST;
 
 export function Center(props: any) {
   return (
@@ -68,7 +64,7 @@ export function Carosal() {
 export function Metatags({
   title = "Thiruppugazh Anbargal",
   description = "Guruji Sri AS Raghavan has had a life of miracles. He was an extraordinary man, recognized by one and all as superhuman and as an evolved soul.",
-  image = "https://scontent.fhyd14-2.fna.fbcdn.net/v/t1.6435-9/99120461_1218156155021322_4691731027570196480_n.jpg?_nc_cat=101&ccb=1-4&_nc_sid=e3f864&_nc_ohc=BIUYnI3cqEsAX9UkVYv&_nc_ht=scontent.fhyd14-2.fna&oh=963123cbe73df2743261df9abec3fc7d&oe=6135CF15",
+  image = "https://firebasestorage.googleapis.com/v0/b/thiruppugazhanbargal-515e8.appspot.com/o/thiruppugazh-anbargal%2Flogo.jpg?alt=media&token=5bc35d9b-4390-4176-b056-d344cca59de3",
 }) {
   return (
     <Head>

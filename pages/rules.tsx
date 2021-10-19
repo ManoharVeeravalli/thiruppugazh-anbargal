@@ -10,7 +10,6 @@ import {
 } from "@material-ui/core";
 import Image from "next/image";
 import Layout from "../components/Layout";
-import image1 from "../public/images/other/5-min.jpg";
 import image2 from "../public/images/rules/goldenRules-min.jpg";
 import image3 from "../public/images/other/9-min.png";
 import image4 from "../public/images/other/10-min.png";
@@ -93,11 +92,6 @@ export default function Rules() {
                 </ListItem>
               </List>
             </Grid>
-            {/* <Grid item md={5} xs={12}>
-              <Center>
-                <Image src={image1} alt="guruji" />
-              </Center>
-            </Grid> */}
           </Grid>
           <Grid container>
             <Grid item xs={12}>
