@@ -7,7 +7,7 @@ import FacebookIcon from "@material-ui/icons/Facebook";
 import google from "../public/google.png";
 import { auth, firestore, googleAuthProvider } from "../lib/firebase";
 
-export const IST = process.env.IST;
+export const IST = +`${process.env.IST ?? 86400}`;
 
 export function Center(props: any) {
   return (
@@ -47,7 +47,7 @@ export function Copyright() {
           <FacebookIcon />
         </a>
       </Grid>
-      <br/>
+      <br />
       <Center>
         <Typography variant="caption">
           Copyright © 2021 by Thiruppugazh Anbargal. All rights reserved.
