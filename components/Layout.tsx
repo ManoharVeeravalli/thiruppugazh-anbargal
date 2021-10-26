@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Toaster } from "react-hot-toast";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Drawer from "@material-ui/core/Drawer";
@@ -20,13 +21,13 @@ import Link from "next/link";
 import { Avatar, Box, Grid, Paper } from "@material-ui/core";
 import { grey } from "@material-ui/core/colors";
 import { auth } from "../lib/firebase";
-import { Copyright, GoogleSignIn } from "./common";
+import { Copyright, getUsernameFromEmail, GoogleSignIn } from "./common";
 
 const drawerWidth = 340;
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    root: {
+    main: {
       display: "flex",
     },
     appBar: {
@@ -75,7 +76,7 @@ export default function Layout(props: any) {
 
   return (
     <>
-      <div className={classes.root}>
+      <div className={classes.main}>
         <header>
           <AppBar position="fixed" className={classes.appBar} color={"default"}>
             <Toolbar>
@@ -101,7 +102,10 @@ export default function Layout(props: any) {
               </Typography>
               {!user && <GoogleSignIn />}
               {user && (
-                <Link href={`/${user.uid}`} passHref>
+                <Link
+                  href={`/${getUsernameFromEmail(`${user.email}`)}`}
+                  passHref
+                >
                   <Avatar
                     alt={user.displayName ?? `Anonymous`}
                     src={user.photoURL ?? ``}
@@ -180,6 +184,7 @@ export default function Layout(props: any) {
           </div>
         </Drawer>
         <main className={classes.content}>
+          <Toaster />
           <Toolbar />
           {props.children}
           <Copyright />

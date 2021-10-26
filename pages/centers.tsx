@@ -1,5 +1,4 @@
 import {
-  Box,
   Card,
   CardContent,
   Grid,
@@ -46,7 +45,7 @@ export default function Centers(props: any) {
                 <AccordionSummary expandIcon={<LocationOnIcon />}>
                   <Typography>Delhi</Typography>
                 </AccordionSummary>
-                <Box p={1}>
+                <div className="p-1">
                   <SubHeading text="Thiruppugazh activities in Delhi" />
                   <Typography paragraph>
                     Guruji started this movement in Delhi and it has spread
@@ -137,13 +136,13 @@ export default function Centers(props: any) {
                       { name: "Smt Girija", number: "9953727467" },
                     ]}
                   />
-                </Box>
+                </div>
               </Accordion>
               <Accordion>
                 <AccordionSummary expandIcon={<LocationOnIcon />}>
                   <Typography>Chennai</Typography>
                 </AccordionSummary>
-                <Box p={1}>
+                <div className="p-1">
                   <SubHeading text="Thiruppugazh activities in Chennai" />
                   <TableContainer>
                     <Table size="small">
@@ -323,13 +322,13 @@ export default function Centers(props: any) {
                       { name: "Smt Alamelu Santhanam", number: "9962905136" },
                     ]}
                   />
-                </Box>
+                </div>
               </Accordion>
               <Accordion>
                 <AccordionSummary expandIcon={<LocationOnIcon />}>
                   <Typography>Bombay</Typography>
                 </AccordionSummary>
-                <Box p={1}>
+                <div className="p-1">
                   <SubHeading text="Thiruppugazh activities in Bombay" />
                   <Typography paragraph>
                     About 40 Classes under 20 teachers
@@ -394,13 +393,13 @@ export default function Centers(props: any) {
                       { name: "Sri A.S. Mani", number: "9820993406" },
                     ]}
                   />
-                </Box>
+                </div>
               </Accordion>
               <Accordion>
                 <AccordionSummary expandIcon={<LocationOnIcon />}>
                   <Typography>Banglore</Typography>
                 </AccordionSummary>
-                <Box p={1}>
+                <div className="p-1">
                   <SubHeading text="Thiruppugazh activities in Banglore" />
                   <TableContainer>
                     <Table size="small">
@@ -501,13 +500,13 @@ export default function Centers(props: any) {
                       },
                     ]}
                   />
-                </Box>
+                </div>
               </Accordion>
               <Accordion>
                 <AccordionSummary expandIcon={<LocationOnIcon />}>
                   <Typography>Hyderabad</Typography>
                 </AccordionSummary>
-                <Box p={1}>
+                <div className="p-1">
                   <SubHeading text="Thiruppugazh activities in Hyderabad" />
                   <Typography paragraph>
                     Classes are held on all days of the week at various places
@@ -675,13 +674,13 @@ export default function Centers(props: any) {
                       },
                     ]}
                   />
-                </Box>
+                </div>
               </Accordion>
               <Accordion>
                 <AccordionSummary expandIcon={<LocationOnIcon />}>
                   <Typography>Pune</Typography>
                 </AccordionSummary>
-                <Box p={1}>
+                <div className="p-1">
                   <SubHeading text="Thiruppugazh activities in Pune" />
                   <Typography paragraph>
                     Classes are conducted in different places by a team of
@@ -763,13 +762,13 @@ export default function Centers(props: any) {
                       },
                     ]}
                   />
-                </Box>
+                </div>
               </Accordion>
               <Accordion>
                 <AccordionSummary expandIcon={<LocationOnIcon />}>
                   <Typography>Coimbatore</Typography>
                 </AccordionSummary>
-                <Box p={1}>
+                <div className="p-1">
                   <SubHeading text="Thiruppugazh activities in Coimbatore" />
                   <Typography paragraph>
                     Classes are held at various places in the city.
@@ -823,13 +822,13 @@ export default function Centers(props: any) {
                       },
                     ]}
                   />
-                </Box>
+                </div>
               </Accordion>
               <Accordion>
                 <AccordionSummary expandIcon={<LocationOnIcon />}>
                   <Typography>Thiruvananthapuram</Typography>
                 </AccordionSummary>
-                <Box p={1}>
+                <div className="p-1">
                   <SubHeading text="Thiruppugazh activities in Thiruvananthapuram" />
                   <TableContainer>
                     <Table size="small">
@@ -909,13 +908,13 @@ export default function Centers(props: any) {
                       },
                     ]}
                   />
-                </Box>
+                </div>
               </Accordion>
               <Accordion>
                 <AccordionSummary expandIcon={<LocationOnIcon />}>
                   <Typography>Baroda</Typography>
                 </AccordionSummary>
-                <Box p={1}>
+                <div className="p-1">
                   <SubHeading text="Thiruppugazh activities in Baroda" />
                   <TableContainer>
                     <Table size="small">
@@ -995,13 +994,13 @@ export default function Centers(props: any) {
                       },
                     ]}
                   />
-                </Box>
+                </div>
               </Accordion>
               <Accordion>
                 <AccordionSummary expandIcon={<LocationOnIcon />}>
                   <Typography>Kolkata</Typography>
                 </AccordionSummary>
-                <Box p={1}>
+                <div className="p-1">
                   <SubHeading text="Thiruppugazh activities in Kolkata" />
                   <TableContainer>
                     <Table size="small">
@@ -1051,13 +1050,13 @@ export default function Centers(props: any) {
                       },
                     ]}
                   />
-                </Box>
+                </div>
               </Accordion>
               <Accordion>
                 <AccordionSummary expandIcon={<LocationOnIcon />}>
                   <Typography>Toronto</Typography>
                 </AccordionSummary>
-                <Box p={1}>
+                <div className="p-1">
                   <SubHeading text="Thiruppugazh activities in Toronto" />
                   <TableContainer>
                     <Table size="small">
@@ -1103,13 +1102,13 @@ export default function Centers(props: any) {
                       },
                     ]}
                   />
-                </Box>
+                </div>
               </Accordion>
               <Accordion>
                 <AccordionSummary expandIcon={<LocationOnIcon />}>
                   <Typography>New Jersey</Typography>
                 </AccordionSummary>
-                <Box p={1}>
+                <div className="p-1">
                   <SubHeading text="Thiruppugazh activities in New Jersey" />
                   <ContactPersons
                     location="New Jersey"
@@ -1120,13 +1119,13 @@ export default function Centers(props: any) {
                       },
                     ]}
                   />
-                </Box>
+                </div>
               </Accordion>
               <Accordion>
                 <AccordionSummary expandIcon={<LocationOnIcon />}>
                   <Typography>Chicago</Typography>
                 </AccordionSummary>
-                <Box p={1}>
+                <div className="p-1">
                   <SubHeading text="Thiruppugazh activities in Chicago" />
                   <ContactPersons
                     location="Chicago"
@@ -1137,13 +1136,13 @@ export default function Centers(props: any) {
                       },
                     ]}
                   />
-                </Box>
+                </div>
               </Accordion>
               <Accordion>
                 <AccordionSummary expandIcon={<LocationOnIcon />}>
                   <Typography>Boston</Typography>
                 </AccordionSummary>
-                <Box p={1}>
+                <div className="p-1">
                   <SubHeading text="Thiruppugazh activities in Boston" />
                   <ContactPersons
                     location="Boston"
@@ -1154,13 +1153,13 @@ export default function Centers(props: any) {
                       },
                     ]}
                   />
-                </Box>
+                </div>
               </Accordion>
               <Accordion>
                 <AccordionSummary expandIcon={<LocationOnIcon />}>
                   <Typography>Dubai</Typography>
                 </AccordionSummary>
-                <Box p={1}>
+                <div className="p-1">
                   <SubHeading text="Thiruppugazh activities in Dubai" />
                   <ContactPersons
                     location="Dubai"
@@ -1175,13 +1174,13 @@ export default function Centers(props: any) {
                       },
                     ]}
                   />
-                </Box>
+                </div>
               </Accordion>
               <Accordion>
                 <AccordionSummary expandIcon={<LocationOnIcon />}>
                   <Typography>Singapore</Typography>
                 </AccordionSummary>
-                <Box p={1}>
+                <div className="p-1">
                   <SubHeading text="Thiruppugazh activities in Singapore" />
                   <ContactPersons
                     location="Singapore"
@@ -1192,7 +1191,7 @@ export default function Centers(props: any) {
                       },
                     ]}
                   />
-                </Box>
+                </div>
               </Accordion>
             </Grid>
             <Grid item md={5} xs={12} className="overflow-auto">
@@ -1313,8 +1312,10 @@ function ContactPersons({
 }
 
 export async function getStaticProps() {
-  const collection = await firestore.collection("phoneNumbers")
-  .orderBy("state", "asc").get();
+  const collection = await firestore
+    .collection("phoneNumbers")
+    .orderBy("state", "asc")
+    .get();
   return {
     props: { contacts: collection.docs.map((doc) => doc.data()) },
     revalidate: IST,

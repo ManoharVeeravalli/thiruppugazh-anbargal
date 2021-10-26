@@ -37,6 +37,16 @@ export default function AboutUs() {
         <CardContent>
           <Heading text="About Us" />
           <Typography paragraph>
+            The website is built using&nbsp;
+            <a href="https://nextjs.org" target="_blank" rel="noreferrer">
+              NextJS
+            </a>&nbsp;
+            &&nbsp;
+            <a href="https://vercel.com/home" target="_blank" rel="noreferrer">
+              Vercel
+            </a>
+          </Typography>
+          <Typography paragraph>
             This web site has been developed with the intention of propagating
             Guruji Sri A.S. Raghavan’s enormous contribution to society. All of
             us, our parents and generations to come will benefit from this, so I

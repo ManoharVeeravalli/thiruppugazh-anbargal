@@ -13,10 +13,10 @@ import { firestore } from "../lib/firebase";
 export default function Virutham(props: any) {
   return (
     <Layout>
-      <Metatags title="Virutham" />
+      <Metatags title="Viruthams Sung By Guruji" />
       <Card>
         <CardContent>
-          <Heading text="Virutham" />
+          <Heading text="Viruthams Sung By Guruji" />
           <Grid container>
             <Grid item md={12} xs={12}>
               <TableContainer>

@@ -6,6 +6,7 @@ import {
   TextField,
   Typography,
 } from "@material-ui/core";
+import toast from "react-hot-toast";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import { useAuthState } from "react-firebase-hooks/auth";
 import List from "@material-ui/core/List";
@@ -18,11 +19,13 @@ import {
   auth,
   commentsToJSON,
   firestore,
+  getUser,
   serverTimestamp,
 } from "../lib/firebase";
-import { Heading, Metatags } from "../components/common";
+import { Feedback, Heading, Metatags, User } from "../components/common";
 import Link from "next/link";
 import { useState } from "react";
+const moment = require("moment");
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -37,11 +40,11 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export default function Feedback(props: any) {
+export default function FeedbackComments(props: { feedbacks: Feedback[] }) {
   const classes = useStyles();
   const [error, setError] = useState(false);
   const [comment, setComment] = useState(``);
-  const [comments, setComments] = useState(props?.comments || []);
+  const [comments, setComments] = useState<Feedback[]>(props?.feedbacks || []);
 
   const [user] = useAuthState(auth);
 
@@ -51,21 +54,28 @@ export default function Feedback(props: any) {
     } else {
       setError(false);
     }
-    const o = {
-      commentImage: user?.photoURL,
-      commentMsg: comment,
-      commentedBy: user?.displayName,
+    let o: Feedback = {
+      message: comment,
       commentedOn: serverTimestamp(),
-      commentedUserUid: user?.uid,
+      uid: `${user?.uid}`,
     };
+    const toastId = toast.loading("Loading...");
     try {
-      await firestore.collection("comments").add(o);
-      props.comments.push(o);
+      const doc = await firestore.collection("feedbacks").add(o);
+      const userDoc = (await getUser(`${user?.uid}`)).data() as User;
+      o = {
+        ...o,
+        fid: `${doc.id}`,
+        user: userDoc,
+      };
+      toast.remove(toastId);
+      toast.success("Feedback added successfully");
       setComment("");
       setComments([o, ...comments]);
     } catch (e) {
       console.error(e);
-      alert("Failed to add comment");
+      toast.remove(toastId);
+      toast.error("Failed to add feedback, Please try again later");
     }
   };
   return (
@@ -109,19 +119,16 @@ export default function Feedback(props: any) {
             </>
           )}
           <List>
-            {comments?.map((comment: any) => {
+            {comments?.map(({ message, user, fid, commentedOn }) => {
               return (
-                <ListItem alignItems="flex-start" key={comment.commentMsg}>
+                <ListItem alignItems="flex-start" key={fid}>
                   <ListItemAvatar>
-                    <Avatar
-                      alt={comment.commentedBy}
-                      src={comment.commentImage}
-                    />
+                    <Avatar alt={user?.displayName} src={user?.photoURL} />
                   </ListItemAvatar>
                   <ListItemText
                     primary={
-                      <Link href={`/${comment.commentedUserUid}`}>
-                        {comment.commentedBy}
+                      <Link href={`/${user?.username}`}>
+                        {user?.displayName}
                       </Link>
                     }
                     secondary={
@@ -132,7 +139,7 @@ export default function Feedback(props: any) {
                           className={classes.inline}
                           color="textPrimary"
                         >
-                          {comment.commentMsg}
+                          {moment(commentedOn).format("LL")} - {message}
                         </Typography>
                       </>
                     }
@@ -149,14 +156,16 @@ export default function Feedback(props: any) {
 
 export async function getServerSideProps() {
   const collection = await firestore
-    .collection("comments")
+    .collection("feedbacks")
     .orderBy("commentedOn", "desc")
     .get();
+  const feedbacks = collection.docs.map(commentsToJSON) as Feedback[];
+  for (const feedback of feedbacks) {
+    feedback.user = (await getUser(feedback.uid)).data() as User;
+  }
   return {
     props: {
-      comments: collection.docs.map((doc) => {
-        return commentsToJSON(doc);
-      }),
+      feedbacks,
     },
   };
 }

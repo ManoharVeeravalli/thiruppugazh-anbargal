@@ -2,7 +2,6 @@ import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
-  Box,
   Card,
   CardContent,
   Grid,
@@ -55,11 +54,11 @@ export default function Articles() {
                   <Typography>Felicitation&apos;s to Guruji </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <Box>
+                  <div>
                     <Center>
                       <Image src={image1} alt="guruji" />
                     </Center>
-                  </Box>
+                  </div>
                 </AccordionDetails>
               </Accordion>
               <Accordion>
@@ -67,7 +66,7 @@ export default function Articles() {
                   <Typography>Pada Thamarai by Guruji</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <Box>
+                  <div>
                     <Center>
                       <Image src={image2} alt="guruji" />
                     </Center>
@@ -80,7 +79,7 @@ export default function Articles() {
                     <Center>
                       <Image src={image5} alt="guruji" />
                     </Center>
-                  </Box>
+                  </div>
                 </AccordionDetails>
               </Accordion>
               <Accordion>
@@ -91,7 +90,7 @@ export default function Articles() {
                   </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <Box>
+                  <div>
                     <Center>
                       <Image src={image6} alt="guruji" />
                     </Center>
@@ -116,7 +115,7 @@ export default function Articles() {
                     <Center>
                       <Image src={image13} alt="guruji" />
                     </Center>
-                  </Box>
+                  </div>
                 </AccordionDetails>
               </Accordion>
               <Accordion>
@@ -126,7 +125,7 @@ export default function Articles() {
                   </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <Box>
+                  <div>
                     <Center>
                       <Image src={image14} alt="guruji" />
                     </Center>
@@ -136,7 +135,7 @@ export default function Articles() {
                     <Center>
                       <Image src={image16} alt="guruji" />
                     </Center>
-                  </Box>
+                  </div>
                 </AccordionDetails>
               </Accordion>
               <Accordion>
@@ -144,11 +143,11 @@ export default function Articles() {
                   <Typography>Cultivating Indianess by Hindu Paper</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <Box>
+                  <div>
                     <Center>
                       <Image src={image17} alt="guruji" />
                     </Center>
-                  </Box>
+                  </div>
                 </AccordionDetails>
               </Accordion>
               <Accordion>
@@ -158,7 +157,7 @@ export default function Articles() {
                   </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <Box>
+                  <div>
                     <Center>
                       <Image src={image18} alt="guruji" />
                     </Center>
@@ -180,7 +179,7 @@ export default function Articles() {
                     <Center>
                       <Image src={image24} alt="guruji" />
                     </Center>
-                  </Box>
+                  </div>
                 </AccordionDetails>
               </Accordion>
               <Accordion>
@@ -190,14 +189,14 @@ export default function Articles() {
                   </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <Box>
+                  <div>
                     <Center>
                       <Image src={image25} alt="guruji" />
                     </Center>
                     <Center>
                       <Image src={image26} alt="guruji" />
                     </Center>
-                  </Box>
+                  </div>
                 </AccordionDetails>
               </Accordion>
               <Accordion>
@@ -205,11 +204,11 @@ export default function Articles() {
                   <Typography>Grace by Sri Vs Krishnan</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <Box>
+                  <div>
                     <Center>
                       <Image src={image27} alt="guruji" />
                     </Center>
-                  </Box>
+                  </div>
                 </AccordionDetails>
               </Accordion>
             </Grid>

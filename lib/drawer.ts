@@ -28,12 +28,22 @@ export const items = [
     link: `/songs`,
   },
   {
+    text: `Playlists`,
+    icon: QueueMusicIcon,
+    link: `/playlists`,
+  },
+  {
+    text: `Vel Mayil Virutham`,
+    icon: FolderIcon,
+    link: `/vel-mayil-virutham`,
+  },
+  {
     text: `Vaguppu`,
     icon: FolderIcon,
     link: `/vaguppu`,
   },
   {
-    text: `Virutham`,
+    text: `Viruthams Sung By Guruji`,
     icon: FolderIcon,
     link: `/virutham`,
   },

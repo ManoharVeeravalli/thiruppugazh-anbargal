@@ -1,10 +1,4 @@
-import {
-  Card,
-  CardActionArea,
-  CardContent,
-  Grid,
-  Typography,
-} from "@material-ui/core";
+import { Card, CardContent, Grid, Typography } from "@material-ui/core";
 import Layout from "../components/Layout";
 import Image from "next/image";
 import { Center, Heading, SubHeading, Metatags } from "../components/common";
@@ -38,7 +32,6 @@ export default function Home() {
     <Layout>
       <Metatags />
       <Card>
-        {/* <CardActionArea><Carosal /></CardActionArea> */}
         <CardContent>
           <Heading text="About Guruji" />
           <Grid container spacing={3}>
