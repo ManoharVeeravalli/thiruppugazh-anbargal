@@ -2,7 +2,9 @@ import { Button, Grid, Typography } from "@material-ui/core";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import toast from "react-hot-toast";
 import {
+  AlertDialog,
   Heading,
   Metatags,
   Playlist,
@@ -20,6 +22,11 @@ export default function Playlists(props: { playlists: Playlist[] }) {
   const [playlistsEnd, setPlaylistsEnd] = useState(false);
   const router = useRouter();
   const [currentUser] = useAuthState(auth);
+  const [open, setOpen] = useState(false);
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const getMorePlaylists = async () => {
     const last = playlists[playlists.length - 1];
@@ -30,6 +37,7 @@ export default function Playlists(props: { playlists: Playlist[] }) {
       typeof last.createdAt === "number"
         ? fromMillis(last.createdAt)
         : last.createdAt;
+    const id = toast.loading('Loading...');
     setLoading(true);
     const query = firestore
       .collectionGroup("playlists")
@@ -40,7 +48,7 @@ export default function Playlists(props: { playlists: Playlist[] }) {
     const newPlaylists = (await query.get()).docs.map(playlistToJSON);
     setPlaylists(playlists.concat(newPlaylists));
     setLoading(false);
-
+    toast.remove(id);
     if (newPlaylists.length < LIMIT) {
       setPlaylistsEnd(true);
     }
@@ -50,19 +58,25 @@ export default function Playlists(props: { playlists: Playlist[] }) {
       <Metatags title="Playlists" />
       <Grid container justifyContent="space-between">
         <Heading text="Playlists" />
-        {currentUser && (
-          <Button
-            color="primary"
-            variant="outlined"
-            onClick={() => {
+        <AlertDialog
+          open={open}
+          handleClose={handleClose}
+          message="Please login to create playlists"
+        />
+        <Button
+          color="primary"
+          variant="outlined"
+          onClick={() => {
+            if (currentUser) {
               router.push(`/songs`);
-            }}
-          >
-            Create Playlist
-          </Button>
-        )}
+            } else {
+              setOpen(true);
+            }
+          }}
+        >
+          Create Playlist
+        </Button>
       </Grid>
-
       <br />
       <Grid container spacing={3}>
         {playlists.map((playlist) => {

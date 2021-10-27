@@ -5,6 +5,11 @@ import {
   CardContent,
   Chip,
   createStyles,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
   FormControl,
   Grid,
   InputLabel,
@@ -16,6 +21,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import ExcelJS from "exceljs";
+var FileSaver = require("file-saver");
 import Image from "next/image";
 import Head from "next/head";
 import theme from "../lib/theme";
@@ -66,7 +72,7 @@ export function SubHeading({ text }: { text: string }) {
 export function Copyright() {
   return (
     <>
-      <div style={{padding: '24px'}}>
+      <div style={{ padding: "24px" }}>
         <Grid container justifyContent="flex-end">
           <a
             href="https://www.facebook.com/Thiruppugazh-Anbargal-341776189325994"
@@ -146,12 +152,9 @@ export function GoogleSignIn() {
   );
 }
 
-export function getWorkbook(selected: any[], songs: any[]) {
+export async function exportWorkbook(selected: Song[], name='song') {
   const workbook = new ExcelJS.Workbook();
   const worksheet = workbook.addWorksheet("Selected Songs");
-  const selectedSongs: any[] = songs.filter((song) => {
-    return selected.includes(song.newNumber);
-  });
   let width = 30;
   worksheet.columns = [
     { header: "Song Name", key: "songName", width },
@@ -165,9 +168,9 @@ export function getWorkbook(selected: any[], songs: any[]) {
     { header: "Classify 2", key: "classify2", width },
     { header: "Classify 3", key: "classify3", width },
   ];
-  for (let i = 0; i < selectedSongs.length; i++) {
+  for (let i = 0; i < selected.length; i++) {
     const row = worksheet.getRow(i + 2);
-    const song = selectedSongs[i];
+    const song = selected[i];
     for (let j = 0; j < worksheet.columns.length; j++) {
       const column = worksheet.columns[j];
       const cell = row.getCell(j + 1);
@@ -208,7 +211,11 @@ export function getWorkbook(selected: any[], songs: any[]) {
       }
     }
   }
-  return workbook;
+  const buffer = await workbook.xlsx.writeBuffer();
+  var blob = new Blob([buffer], {
+    type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+  });
+  FileSaver.saveAs(blob, `${name}_${Date.now()}.xlsx`);
 }
 
 export function extractQueryParams(url: string) {
@@ -397,6 +404,7 @@ export interface Song {
   classify1: string;
   classify2: string;
   classify3: string;
+  [key: string]: any;
 }
 
 export interface Playlist {
@@ -494,10 +502,7 @@ export function PlayListCard({
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small" onClick={async () => {
-            await navigator.clipboard.writeText(`https://www.thiruppugazhanbargal.org/${username}/${pid}`);
-            toast.success('Copied to clipboard!');
-          }}>Share</Button>
+          <SharePlaylist username={username} pid={pid} />
           {onPlaylistDelete && currentUser?.uid === uid && (
             <Button
               color="secondary"
@@ -510,5 +515,50 @@ export function PlayListCard({
         </CardActions>
       </Card>
     </Grid>
+  );
+}
+
+export function SharePlaylist({
+  username,
+  pid,
+}: {
+  username: string;
+  pid: string;
+}) {
+  return (
+    <Button
+      size="small"
+      onClick={async () => {
+        await navigator.clipboard.writeText(
+          `https://www.thiruppugazhanbargal.org/${username}/${pid}`
+        );
+        toast.success("Copied to clipboard!");
+      }}
+    >
+      Share
+    </Button>
+  );
+}
+
+
+export function AlertDialog({
+  open,
+  handleClose,
+  message,
+}: {
+  open: boolean;
+  handleClose: any;
+  message: string;
+}) {
+  return (
+    <Dialog open={open} onClose={handleClose}>
+      <DialogTitle>Alert</DialogTitle>
+      <DialogContent>
+        <DialogContentText>{message}</DialogContentText>
+      </DialogContent>
+      <DialogActions>
+        <Button onClick={handleClose}>Ok</Button>
+      </DialogActions>
+    </Dialog>
   );
 }

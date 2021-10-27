@@ -32,11 +32,11 @@ export const items = [
     icon: QueueMusicIcon,
     link: `/playlists`,
   },
-  {
-    text: `Vel Mayil Virutham`,
-    icon: FolderIcon,
-    link: `/vel-mayil-virutham`,
-  },
+  // {
+  //   text: `Vel Mayil Virutham`,
+  //   icon: FolderIcon,
+  //   link: `/vel-mayil-virutham`,
+  // },
   {
     text: `Vaguppu`,
     icon: FolderIcon,

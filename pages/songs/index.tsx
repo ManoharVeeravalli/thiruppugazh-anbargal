@@ -13,14 +13,13 @@ import toast from "react-hot-toast";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Image from "next/image";
-var FileSaver = require("file-saver");
 import Layout from "../../components/Layout";
 import { auth, firestore, serverTimestamp } from "../../lib/firebase";
 const lodash = require("lodash");
 import {
   Center,
   getUsernameFromEmail,
-  getWorkbook,
+  exportWorkbook,
   Heading,
   IST,
   Metatags,
@@ -85,13 +84,10 @@ export default function Songs(props: { songs: Song[] }) {
     }
   };
   const exportToExcel = async () => {
-    const workbook = getWorkbook(select, props?.songs);
-    workbook.xlsx.writeBuffer().then(function (data: any) {
-      var blob = new Blob([data], {
-        type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-      });
-      FileSaver.saveAs(blob, `songs_${Date.now()}.xlsx`);
+    const selectedSongs: any[] = props?.songs.filter((song) => {
+      return select.includes(song.newNumber);
     });
+    await exportWorkbook(selectedSongs);
   };
 
   return (

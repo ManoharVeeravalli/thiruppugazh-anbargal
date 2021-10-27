@@ -1,6 +1,8 @@
 import {
   Avatar,
+  Button,
   Card,
+  CardActions,
   CardContent,
   CardHeader,
   createStyles,
@@ -9,16 +11,18 @@ import {
 } from "@material-ui/core";
 import { useRouter } from "next/router";
 import {
+  exportWorkbook,
   Heading,
   Metatags,
   Playlist,
+  SharePlaylist,
   Song,
   SongsTable,
   User,
 } from "../../components/common";
 import Layout from "../../components/Layout";
 import { getPlayList } from "../../lib/firebase";
-const moment = require('moment');
+const moment = require("moment");
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -47,6 +51,9 @@ export default function PlayList({
   const goToAuthor = () => {
     router.push(`/${user.username}`);
   };
+  const exportToExcel = async () => {
+    await exportWorkbook(songs, playlist.pid);
+  };
   return (
     <Layout>
       <Metatags title={playlist.name} />
@@ -54,13 +61,26 @@ export default function PlayList({
       <Card>
         <CardHeader
           className={classes.header}
-          avatar={<Avatar onClick={goToAuthor} alt={user.displayName} src={user.photoURL} />}
+          avatar={
+            <Avatar
+              onClick={goToAuthor}
+              alt={user.displayName}
+              src={user.photoURL}
+            />
+          }
           title={<span onClick={goToAuthor}>{user.displayName}</span>}
-          subheader={moment(playlist.createdAt).format('LL')}
+          subheader={moment(playlist.createdAt).format("LL")}
         />
         <CardContent>
           <SongsTable songs={songs} />
+          <br/>
         </CardContent>
+        <CardActions>
+          <SharePlaylist username={user.username} pid={playlist.pid} />
+          <Button  color="primary" onClick={exportToExcel}>
+            Export
+          </Button>
+        </CardActions>
       </Card>
     </Layout>
   );
