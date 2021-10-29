@@ -14,6 +14,10 @@ body {
   margin: auto !important;
 }
 
+.w-100 {
+  width: 100% !important;
+}
+
 .btn-google img {
   width: 30px;
   margin-right: 10px;

@@ -5,6 +5,7 @@ import {
   Grid,
   TextField,
   Typography,
+  Link as MaterialLink,
 } from "@material-ui/core";
 import toast from "react-hot-toast";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
@@ -35,7 +36,7 @@ const useStyles = makeStyles((theme: Theme) =>
       backgroundColor: theme.palette.background.paper,
     },
     inline: {
-      display: "inline",
+      color: theme.palette.grey[500],
     },
   })
 );
@@ -71,7 +72,7 @@ export default function FeedbackComments(props: { feedbacks: Feedback[] }) {
       toast.remove(toastId);
       toast.success("Feedback added successfully");
       setComment("");
-      setComments([o, ...comments]);
+      setComments([{ ...o, commentedOn: Date.now() }, ...comments]);
     } catch (e) {
       console.error(e);
       toast.remove(toastId);
@@ -109,6 +110,7 @@ export default function FeedbackComments(props: { feedbacks: Feedback[] }) {
                   <Button
                     variant="outlined"
                     color="primary"
+                    disabled={!comment}
                     onClick={() => addComment(comment)}
                   >
                     Send
@@ -127,21 +129,31 @@ export default function FeedbackComments(props: { feedbacks: Feedback[] }) {
                   </ListItemAvatar>
                   <ListItemText
                     primary={
-                      <Link href={`/${user?.username}`}>
-                        {user?.displayName}
-                      </Link>
-                    }
-                    secondary={
                       <>
+                        <Link passHref href={`/${user?.username}`}>
+                          <MaterialLink underline="hover" color="inherit">
+                            {user?.displayName}
+                          </MaterialLink>
+                        </Link>
+                        &nbsp;
                         <Typography
                           component="span"
                           variant="body2"
                           className={classes.inline}
-                          color="textPrimary"
+                          color="inherit"
                         >
-                          {moment(commentedOn).format("LL")} - {message}
+                          {moment(commentedOn).fromNow()}
                         </Typography>
                       </>
+                    }
+                    secondary={
+                      <Typography
+                        component="span"
+                        variant="body2"
+                        color="textPrimary"
+                      >
+                        {message}
+                      </Typography>
                     }
                   />
                 </ListItem>

@@ -1,14 +1,8 @@
-import { Card, CardContent, Grid } from "@material-ui/core";
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableContainer from "@material-ui/core/TableContainer";
-import TableHead from "@material-ui/core/TableHead";
-import TableRow from "@material-ui/core/TableRow";
+import { Card, CardContent, CardHeader, Grid } from "@material-ui/core";
 import { Center, Heading, IST, Metatags } from "../components/common";
 import Image from "next/image";
 import Layout from "../components/Layout";
-import { firestore } from "../lib/firebase";
+import { storage } from "../lib/firebase";
 import image1 from "../public/images/valli-kalyanam/valli kalyanam_1-min.jpg";
 import image2 from "../public/images/valli-kalyanam/valli kalyanam_2-min.jpg";
 import image3 from "../public/images/valli-kalyanam/valli kalyanam_3-min.jpg";
@@ -87,36 +81,27 @@ export default function ValliKalyanam(props: any) {
   return (
     <Layout>
       <Metatags title="Valli Kalyanam" />
+      <Heading text="Valli Kalyanam" />
+      <Grid container spacing={1}>
+        {props?.list.map(({ name, url }: { name: string; url: string }) => {
+          return (
+            <Grid item md={6} xs={12} key={name}>
+              <Card>
+                <CardHeader title={name.split(".")[0].replace(/_/g, " ")} />
+                <CardContent>
+                  <audio controls className="w-100">
+                    <source src={url} type="audio/mpeg" />
+                    Your browser does not support the audio element.
+                  </audio>
+                </CardContent>
+              </Card>
+            </Grid>
+          );
+        })}
+      </Grid>
       <Card>
         <CardContent>
-          <Heading text="Valli Kalyanam" />
           <Grid container spacing={1}>
-            <Grid item md={12} xs={12} className="overflow-auto">
-              <TableContainer>
-                <Table>
-                  <TableHead>
-                    <TableRow>
-                      <TableCell component="th">#</TableCell>
-                      <TableCell component="th">Name</TableCell>
-                    </TableRow>
-                  </TableHead>
-                  <TableBody>
-                    {props?.list?.map(({ name, url }: any, i: number) => {
-                      return (
-                        <TableRow key={i}>
-                          <TableCell>{i + 1}</TableCell>
-                          <TableCell>
-                            <a href={url} target="_blank" rel="noreferrer">
-                              {name}
-                            </a>
-                          </TableCell>
-                        </TableRow>
-                      );
-                    })}
-                  </TableBody>
-                </Table>
-              </TableContainer>
-            </Grid>
             {Object.keys(images).map((key) => {
               return (
                 <Grid item md={12} xs={12} key={key}>
@@ -134,10 +119,16 @@ export default function ValliKalyanam(props: any) {
 }
 
 export async function getStaticProps() {
-  const doc = await firestore.collection("other").doc("vallikalyanam").get();
+  const files = await storage.ref("valli-kalyanam").list();
+  const list = await Promise.all(
+    files.items.map(async (item) => {
+      const url = await item.getDownloadURL();
+      return { name: item.name, url };
+    })
+  );
   return {
     props: {
-      list: doc?.data()?.data,
+      list,
     },
     revalidate: IST,
   };

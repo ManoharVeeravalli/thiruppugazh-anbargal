@@ -3,6 +3,7 @@ import "firebase/auth";
 import "firebase/firestore";
 import "firebase/storage";
 import { Feedback, Playlist, Song, User } from "../components/common";
+global.XMLHttpRequest = require("xhr2");
 
 const firebaseConfig = {
   apiKey: "AIzaSyBZj1DcjriYkzGsu6su5mgVdzFD0yC4-r8",
@@ -20,6 +21,7 @@ if (!firebase.apps.length) {
 
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
+export const storage = firebase.storage();
 export const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 export const fromMillis = firebase.firestore.Timestamp.fromMillis;
 export const serverTimestamp = firebase.firestore.FieldValue.serverTimestamp;
@@ -59,36 +61,12 @@ export function playlistToJSON(doc: any): Playlist {
   };
 }
 
-export async function getPlayList(username: string, pid: string) {
-  const userDoc = await getUserWithUsername(username);
-  if (!userDoc.exists) {
-    return {
-      notFound: true,
-    };
-  }
-  const user = userDoc.data() as User;
+export async function getPlayList(uid: string, pid: string) {
   const doc = await firestore
     .collection("users")
-    .doc(user.uid)
+    .doc(uid)
     .collection("playlists")
     .doc(pid)
     .get();
-  if (!doc.exists) {
-    return {
-      notFound: true,
-    };
-  }
-  const playlist: Playlist = doc.data() as Playlist;
-  const songs = (
-    await Promise.all(
-      playlist.list.map((l) => firestore.collection("songs").doc(`${l}`).get())
-    )
-  ).map((doc) => ({ ...doc.data(), id: doc.id } as Song));
-  return {
-    props: {
-      playlist: playlistToJSON(doc),
-      songs,
-      user,
-    },
-  };
+  return doc;
 }

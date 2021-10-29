@@ -7,7 +7,7 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import { Heading, IST, Metatags } from "../components/common";
 import Layout from "../components/Layout";
-import { firestore } from "../lib/firebase";
+import { storage } from "../lib/firebase";
 
 export default function Meanings(props: any) {
   return (
@@ -51,10 +51,16 @@ export default function Meanings(props: any) {
 }
 
 export async function getStaticProps() {
-  const doc = await firestore.collection("other").doc("meanings").get();
+  const files = await storage.ref("meanings").list();
+  const list = await Promise.all(
+    files.items.map(async (item) => {
+      const url = await item.getDownloadURL();
+      return { name: item.name, url };
+    })
+  );
   return {
     props: {
-      list: doc?.data()?.data,
+      list,
     },
     revalidate: IST,
   };

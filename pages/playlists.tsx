@@ -37,7 +37,7 @@ export default function Playlists(props: { playlists: Playlist[] }) {
       typeof last.createdAt === "number"
         ? fromMillis(last.createdAt)
         : last.createdAt;
-    const id = toast.loading('Loading...');
+    const id = toast.loading("Loading...");
     setLoading(true);
     const query = firestore
       .collectionGroup("playlists")
@@ -78,7 +78,7 @@ export default function Playlists(props: { playlists: Playlist[] }) {
         </Button>
       </Grid>
       <br />
-      <Grid container spacing={3}>
+      <Grid container spacing={1}>
         {playlists.map((playlist) => {
           return <PlayListCard playlist={playlist} key={playlist.pid} />;
         })}
@@ -89,7 +89,6 @@ export default function Playlists(props: { playlists: Playlist[] }) {
           Load more
         </Button>
       )}
-      {loading && <Typography paragraph>Loading...</Typography>}
       {playlistsEnd && (
         <Typography paragraph>You have reached the end!</Typography>
       )}

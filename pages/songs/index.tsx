@@ -8,7 +8,9 @@ import {
   DialogTitle,
   Grid,
   Typography,
+  Link as MaterialLink,
 } from "@material-ui/core";
+import Link from "next/link";
 import toast from "react-hot-toast";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
@@ -26,6 +28,7 @@ import {
   Playlist,
   Song,
   SongsTable,
+  customizeColumns,
 } from "../../components/common";
 import guru1 from "../../public/images/other/6-min.jpg";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -130,12 +133,19 @@ export default function Songs(props: { songs: Song[] }) {
             </Grid>
           </Grid>
           <SongsTable
+            columns={customizeColumns((row, value) => (
+              <Link href={`/songs/${row.newNumber}`} passHref>
+                <MaterialLink underline="hover" color="primary">
+                  {value}
+                </MaterialLink>
+              </Link>
+            ))}
             songs={props.songs}
             setSelection={setSelection}
             select={select}
             checkboxSelection
           />
-          <br />
+          <br /> <br />
           <Grid container spacing={3}>
             <Grid item md={5} xs={12}>
               <Center>

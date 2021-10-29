@@ -1,61 +1,46 @@
-import { Card, CardContent, Grid } from "@material-ui/core";
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableContainer from "@material-ui/core/TableContainer";
-import TableHead from "@material-ui/core/TableHead";
-import TableRow from "@material-ui/core/TableRow";
+import { Card, CardContent, CardHeader, Grid } from "@material-ui/core";
 import { Heading, IST, Metatags } from "../components/common";
 
 import Layout from "../components/Layout";
-import { firestore } from "../lib/firebase";
+import { storage } from "../lib/firebase";
 
 export default function Abhirami(props: any) {
   return (
     <Layout>
       <Metatags title="Abhirami Andadi Pathikam" />
-      <Card>
-        <CardContent>
-          <Heading text="Abhirami Andadi Pathikam" />
-          <Grid container>
-            <Grid item md={12} xs={12}>
-              <TableContainer>
-                <Table>
-                  <TableHead>
-                    <TableRow>
-                      <TableCell component="th">#</TableCell>
-                      <TableCell component="th">Name</TableCell>
-                    </TableRow>
-                  </TableHead>
-                  <TableBody>
-                    {props?.list?.map(({ name, url }: any, i: number) => {
-                      return (
-                        <TableRow key={i}>
-                          <TableCell>{i + 1}</TableCell>
-                          <TableCell>
-                            <a href={url} target="_blank" rel="noreferrer">
-                              {name}
-                            </a>
-                          </TableCell>
-                        </TableRow>
-                      );
-                    })}
-                  </TableBody>
-                </Table>
-              </TableContainer>
+      <Heading text="Abhirami Andadi Pathikam" />
+      <Grid container spacing={1}>
+        {props?.list.map(({ name, url }: { name: string; url: string }) => {
+          return (
+            <Grid item md={6} xs={12} key={name}>
+              <Card>
+                <CardHeader title={name.split(".")[0]} />
+                <CardContent>
+                  <audio controls className="w-100">
+                    <source src={url} type="audio/mpeg" />
+                    Your browser does not support the audio element.
+                  </audio>
+                </CardContent>
+              </Card>
             </Grid>
-          </Grid>
-        </CardContent>
-      </Card>
+          );
+        })}
+      </Grid>
     </Layout>
   );
 }
 
 export async function getStaticProps() {
-  const doc = await firestore.collection("other").doc("abhirami").get();
+  const files = await storage.ref("abhirami").list();
+  const list = await Promise.all(
+    files.items.map(async (item) => {
+      const url = await item.getDownloadURL();
+      return { name: item.name, url };
+    })
+  );
   return {
     props: {
-      list: doc?.data()?.data,
+      list,
     },
     revalidate: IST,
   };

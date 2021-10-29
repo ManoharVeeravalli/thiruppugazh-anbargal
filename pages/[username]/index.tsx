@@ -6,6 +6,7 @@ import {
   Grid,
   Typography,
 } from "@material-ui/core";
+
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 import { useState } from "react";
 import toast from "react-hot-toast";
@@ -73,7 +74,7 @@ export default function Profile({
 
   return (
     <Layout>
-       <Metatags title={user.displayName} image={user.photoURL}/>
+      <Metatags title={user.displayName} image={user.photoURL} />
       <Card>
         <CardContent>
           <div className="box-center">
@@ -101,7 +102,7 @@ export default function Profile({
       </Card>
       <br />
       {!!list.length && <SubHeading text="Playlists" />}
-      <Grid container spacing={3}>
+      <Grid container spacing={1}>
         {list.map((playlist) => (
           <PlayListCard
             playlist={playlist}

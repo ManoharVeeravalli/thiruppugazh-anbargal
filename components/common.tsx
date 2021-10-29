@@ -19,6 +19,7 @@ import {
   TextField,
   Theme,
   Typography,
+  Link as MaterialLink,
 } from "@material-ui/core";
 import ExcelJS from "exceljs";
 var FileSaver = require("file-saver");
@@ -57,6 +58,20 @@ export function Heading({ text }: { text: string }) {
       style={{ textTransform: "capitalize" }}
     >
       {text}
+    </Typography>
+  );
+}
+
+export function SubTitle({ text }: { text: string }) {
+  return (
+    <Typography
+      gutterBottom
+      variant="body1"
+      component="h6"
+      className="MuiTypography-colorTextSecondary"
+      style={{ textTransform: "capitalize" }}
+    >
+      <i>{text}</i>
     </Typography>
   );
 }
@@ -152,7 +167,7 @@ export function GoogleSignIn() {
   );
 }
 
-export async function exportWorkbook(selected: Song[], name='song') {
+export async function exportWorkbook(selected: Song[], name = "song") {
   const workbook = new ExcelJS.Workbook();
   const worksheet = workbook.addWorksheet("Selected Songs");
   let width = 30;
@@ -227,56 +242,52 @@ export function extractQueryParams(url: string) {
   return map;
 }
 
-const HyperLink = (value: string, url: string) => {
-  if (!value) {
-    return <span>-</span>;
-  }
-  if (!url) {
-    return <span>{value}</span>;
-  }
-  return (
-    <>
+const SongLink = (newNumber: number, name: string) => {
+  return <Link href={`/songs/${newNumber}`}>{name}</Link>;
+};
+
+export function customizeColumns(
+  link: (row: Song, display: string) => React.ReactNode
+): GridColDef[] {
+  const HyperLink = (value: string, url: string) => {
+    return (
       <a href={url} target="_blank" rel="noreferrer">
         {value}
       </a>
-    </>
-  );
-};
-
-const SongLink = (row: any) => {
-  return <Link href={`/songs/${row.newNumber}`}>{row.songName}</Link>;
-};
-
-export const columns: GridColDef[] = [
-  {
-    field: "songName",
-    headerName: "Song Name",
-    width: 180,
-    renderCell: ({ row }: any) => SongLink(row),
-  },
-  { field: "newNumber", headerName: "New Number", width: 90 },
-  { field: "oldNumber", headerName: "Old Number", width: 90 },
-  { field: "ragam", headerName: "ragam", width: 180 },
-  {
-    field: "thalam",
-    headerName: "thalam",
-    width: 180,
-    renderCell: ({ row }) => HyperLink(row.thalam, row.thalamUrl),
-  },
-  {
-    field: "tamilMeaning",
-    headerName: "Tamil Meaning",
-    width: 180,
-    renderCell: ({ row }) => HyperLink(row.tamilMeaning, row.tamilMeaningUrl),
-  },
-  { field: "meaning", headerName: "Meaning", width: 180 },
-  { field: "classify1", headerName: "Classify 1", width: 180 },
-  { field: "classify2", headerName: "Classify 2", width: 180 },
-  { field: "classify3", headerName: "Classify 3", width: 180 },
-];
+    );
+  };
+  return [
+    {
+      field: "songName",
+      headerName: "Song Name",
+      width: 180,
+      renderCell: ({ row }: any) => link(row, row.songName),
+    },
+    {
+      field: "englishName",
+      headerName: "English Name",
+      width: 180,
+      renderCell: ({ row }: any) => link(row, row.englishName),
+    },
+    { field: "newNumber", headerName: "New Number", width: 90 },
+    { field: "oldNumber", headerName: "Old Number", width: 90 },
+    { field: "ragam", headerName: "ragam", width: 180 },
+    {
+      field: "tamilMeaning",
+      headerName: "Tamil Meaning",
+      width: 180,
+      renderCell: ({ row }) => HyperLink(row.tamilMeaning, row.tamilMeaningUrl),
+    },
+    { field: "meaning", headerName: "Meaning", width: 180 },
+    { field: "classify1", headerName: "Classify 1", width: 180 },
+    { field: "classify2", headerName: "Classify 2", width: 180 },
+    { field: "classify3", headerName: "Classify 3", width: 180 },
+  ];
+}
 
 export const SongsTable = (props: {
   songs: Song[];
+  columns: any[];
   setSelection?: any;
   select?: number[];
   checkboxSelection?: boolean;
@@ -355,12 +366,8 @@ export const SongsTable = (props: {
           </Select>
         </FormControl>
       </Grid>
-      {classify && (
-        <Grid xs={12}>
-          <Chip label={classify} onDelete={handleDelete} />
-        </Grid>
-      )}
       <Grid item xs={12}>
+        {classify && <Chip label={classify} onDelete={handleDelete} />}
         <div style={{ height: 500 }}>
           <br />
           <DataGrid
@@ -368,7 +375,7 @@ export const SongsTable = (props: {
               props.setSelection(newSelection);
             }}
             rows={songs}
-            columns={columns}
+            columns={props.columns}
             density="compact"
             pageSize={10}
             selectionModel={props.select}
@@ -404,6 +411,7 @@ export interface Song {
   classify1: string;
   classify2: string;
   classify3: string;
+  englishName: string;
   [key: string]: any;
 }
 
@@ -477,14 +485,11 @@ export function PlayListCard({
             className={classes.user}
           >
             By&nbsp;
-            <span
-              className={classes.username}
-              onClick={() => {
-                router.push(`/${username}`);
-              }}
-            >
-              @{username}
-            </span>
+            <Link passHref href={`/${username}`}>
+              <MaterialLink underline="hover" color="primary">
+                @{username}
+              </MaterialLink>
+            </Link>
           </Typography>
           <Typography
             gutterBottom
@@ -495,7 +500,9 @@ export function PlayListCard({
             }}
             className={classes.title}
           >
-            {name}
+            <MaterialLink underline="hover" color="inherit">
+              {name}
+            </MaterialLink>
           </Typography>
           <Typography paragraph className={classes.subtitle}>
             {moment(createdAt).format("LL")} - {list.length} Songs
@@ -540,7 +547,6 @@ export function SharePlaylist({
   );
 }
 
-
 export function AlertDialog({
   open,
   handleClose,
@@ -560,5 +566,77 @@ export function AlertDialog({
         <Button onClick={handleClose}>Ok</Button>
       </DialogActions>
     </Dialog>
+  );
+}
+
+export function SongDetails({
+  song,
+  children,
+}: {
+  song: Song;
+  children?: any;
+}) {
+  const p1 = extractQueryParams(song.songUrl);
+  return (
+    <>
+      <Grid container spacing={1}>
+        <Grid item md={6} xs={12}>
+          <iframe
+            className="song"
+            src={`https://www.youtube.com/embed/${p1.get("v")}`}
+            title="YouTube video player"
+            frameBorder={0}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+          {children}
+        </Grid>
+      </Grid>
+
+      <Grid container>
+        <Grid item xs={12} md={6}>
+          <Typography paragraph>
+            Ragam: <span>{song.ragam}</span>
+          </Typography>
+          <Typography paragraph>
+            New Number:
+            <span>{song.newNumber}</span>
+          </Typography>
+          <Typography paragraph>
+            Old Number:
+            <span>{song.oldNumber}</span>
+          </Typography>
+          <Typography paragraph>
+            Tamil Meaning:
+            <span>
+              {song.tamilMeaningUrl ? (
+                <a href={song.tamilMeaningUrl} target="_blank" rel="noreferrer">
+                  {song.tamilMeaning}
+                </a>
+              ) : (
+                song.tamilMeaning
+              )}
+            </span>
+          </Typography>
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <Typography paragraph>
+            Meaning: <span> {song.meaning}</span>
+          </Typography>
+          <Typography paragraph>
+            Classify 1:
+            <span>{song.classify1}</span>
+          </Typography>
+          <Typography paragraph>
+            Classify 2:
+            <span>{song.classify2}</span>
+          </Typography>
+          <Typography paragraph>
+            Classify 3:
+            <span>{song.classify3}</span>
+          </Typography>
+        </Grid>
+      </Grid>
+    </>
   );
 }
