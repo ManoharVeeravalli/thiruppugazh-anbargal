@@ -2,7 +2,8 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
 import "firebase/storage";
-import { Feedback, Playlist, Song, User } from "../components/common";
+import "firebase/analytics";
+import { Feedback, Playlist } from "../components/common";
 global.XMLHttpRequest = require("xhr2");
 
 const firebaseConfig = {
@@ -13,6 +14,7 @@ const firebaseConfig = {
   storageBucket: "thiruppugazhanbargal-515e8.appspot.com",
   messagingSenderId: "480701966077",
   appId: "1:480701966077:web:35118115fd6e0237",
+  measurementId: "G-NDZQTKDGKE"
 };
 
 if (!firebase.apps.length) {
@@ -26,7 +28,7 @@ export const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 export const fromMillis = firebase.firestore.Timestamp.fromMillis;
 export const serverTimestamp = firebase.firestore.FieldValue.serverTimestamp;
 export const increment = firebase.firestore.FieldValue.increment;
-
+export const analytics = firebase.analytics;
 /**`
  * Converts a firestore document to JSON
  * @param  {DocumentSnapshot} doc
