@@ -412,6 +412,7 @@ export interface Song {
   classify2: string;
   classify3: string;
   englishName: string;
+  englishMeaning: string;
   [key: string]: any;
 }
 

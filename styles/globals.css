@@ -50,3 +50,10 @@ iframe.song {
 .p-1 {
   padding: 10px;
 }
+
+.text-song {
+  height: 60vh;
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1.25rem;
+}
