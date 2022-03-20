@@ -8,7 +8,7 @@ import {
 } from "@material-ui/core";
 
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -45,7 +45,10 @@ export default function Profile({
   user: User;
   playlists: Playlist[];
 }) {
-  const [list, setList] = useState(playlists);
+  const [list, setList] = useState<Playlist[]>(playlists);
+  useEffect(() => {
+    setList(playlists);
+  }, [playlists]);
   const classes = useStyles();
   const [currentUser] = useAuthState(auth);
 
