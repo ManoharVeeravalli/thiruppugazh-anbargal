@@ -14,7 +14,7 @@ export default function Vaguppu(props: any) {
           return (
             <Grid item md={6} xs={12} key={name}>
               <Card>
-                <CardHeader title={name.split('.')[0]}/>
+                <CardHeader title={name}/>
                 <CardContent>
                   <audio controls className="w-100">
                     <source src={url} type="audio/mpeg" />
@@ -35,9 +35,15 @@ export async function getStaticProps() {
   const list = await Promise.all(
     files.items.map(async (item) => {
       const url = await item.getDownloadURL();
-      return { name: item.name, url };
+      let name = item.name;
+      name = name.split('.mpeg')[0];
+      let number = +name.split('.')[0];
+      return { name, url, number };
     })
   );
+  list.sort((a, b) =>  {
+    return a.number - b.number;
+  })
   return {
     props: {
       list,

@@ -15,7 +15,7 @@ export default function VelMayilVirutham(props: any) {
             <Grid item md={6} xs={12} key={name}>
               <Card>
                 <CardHeader
-                  title={name.split(".")[0].replace(/_/g, " ")}
+                  title={name}
                 ></CardHeader>
                 <CardContent>
                   <audio controls className="w-100">
@@ -37,9 +37,15 @@ export async function getStaticProps() {
   const list = await Promise.all(
     files.items.map(async (item) => {
       const url = await item.getDownloadURL();
-      return { name: item.name, url };
+      let name = item.name;
+      name = name.split('.mp3')[0];
+      let number = +name.split('.')[0];
+      return { name: name, url, number };
     })
   );
+  list.sort((a, b) =>  {
+    return a.number - b.number;
+  })
   return {
     props: {
       list,

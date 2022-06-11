@@ -1232,19 +1232,13 @@ export default function Centers(props: any) {
           <br />
           <Grid container spacing={3}>
             <Grid item xs={12}>
-              <SubHeading text="Outreach classes" />
+              <SubHeading text="Online classes" />
             </Grid>
             <Grid item md={7} xs={12}>
               <Typography paragraph>
-                Kumbakonam Classes held two days in a month in Sankara mutt by
-                Smt Chitra and Sri Murthy from Chennai
+                Online classes are going on across the globe, criss crossing varios
+                continents. This has enabled thiruppugazh to reach many more homes far and wide
               </Typography>
-              <Typography paragraph>Smt Chitra Murthy: 9962577577</Typography>
-              <Typography paragraph>
-                Trichy and Srirangam--Classes held weekly and on every Sashti by
-                Smt Bhuvana from Tanjore.
-              </Typography>
-              <Typography paragraph>Smt Bhuvana: 9940274037</Typography>
             </Grid>
             <Grid item md={5} xs={12}>
               <Center>
@@ -1253,26 +1247,7 @@ export default function Centers(props: any) {
             </Grid>
           </Grid>
           <br />
-          <Grid container spacing={3}>
-            <Grid item xs={12}>
-              <SubHeading text="Skype and other techno classes" />
-            </Grid>
-            <Grid item md={7} xs={12}>
-              <Typography paragraph>
-                1. Sri R.S. Balaji from Bangalore--students in Dubai and US
-              </Typography>
-              <Typography paragraph>Sri R.S.Balaji: 9686329900</Typography>
-
-              <Typography paragraph>
-                2. Smt Uma Balasubramanian from Chennai--Students in Delhi,A
-                group of 15 students attend the class in Noida by Skype or
-                Whatsapp video call. They use Bluetooth speaker for better
-                clarity.
-              </Typography>
-              <Typography paragraph>
-                Smt Uma Balasubramanian: 9884054757
-              </Typography>
-            </Grid>
+          <Grid container spacing={3} justifyContent="flex-end">
             <Grid item md={5} xs={12}>
               <Center>
                 <Image src={image2} alt="guruji" />
