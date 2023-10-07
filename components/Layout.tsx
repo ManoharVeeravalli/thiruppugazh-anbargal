@@ -162,9 +162,9 @@ export default function Layout(props: any) {
               <List>
                 {items.map((item) => {
                   if (item.link) {
-                    return <ListItemLink asPath={asPath} item={item} toggleDrawer={toggleDrawer} />
+                    return <ListItemLink key={item.text} asPath={asPath} item={item} toggleDrawer={toggleDrawer} />
                   }
-                  return <ListItemWithSubItems item={item} asPath={asPath} toggleDrawer={toggleDrawer}/>
+                  return <ListItemWithSubItems key={item.text} item={item} asPath={asPath} toggleDrawer={toggleDrawer}/>
 
                 })}
               </List>
@@ -212,7 +212,7 @@ function ListItemWithSubItems({ item, asPath, toggleDrawer }: { item: any, asPat
       </ListItem>
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-          {item.items.map((item: any) => <ListItemLink asPath={asPath} item={item} toggleDrawer={toggleDrawer} isChild />)}
+          {item.items.map((item: any) => <ListItemLink key={item.text} asPath={asPath} item={item} toggleDrawer={toggleDrawer} isChild />)}
         </List>
       </Collapse>
     </>
