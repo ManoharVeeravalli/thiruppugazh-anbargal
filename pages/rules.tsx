@@ -10,7 +10,7 @@ import {
 } from "@material-ui/core";
 import Image from "next/image";
 import Layout from "../components/Layout";
-import image2 from "../public/images/rules/goldenRules-min.jpg";
+import image2 from "../public/images/rules/goldenRules-min.png";
 import image3 from "../public/images/other/9-min.png";
 import image4 from "../public/images/other/10-min.png";
 import { Center, Heading, SubHeading, Metatags } from "../components/common";

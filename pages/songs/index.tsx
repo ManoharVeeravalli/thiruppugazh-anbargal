@@ -30,7 +30,7 @@ import {
   SongsTable,
   customizeColumns,
 } from "../../components/common";
-import guru1 from "../../public/images/other/6-min.jpg";
+import guru1 from "../../public/images/other/6-min.png";
 import { useAuthState } from "react-firebase-hooks/auth";
 import router from "next/router";
 

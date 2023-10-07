@@ -30,8 +30,8 @@ import {
   SubHeading1
 } from "../components/common";
 import Image from "next/image";
-import image1 from "../public/images/other/1-min.jpg";
-import image2 from "../public/images/other/2-min.jpg";
+import image1 from "../public/images/other/1-min.png";
+import image2 from "../public/images/other/2-min.png";
 
 export default function Centers(props: any) {
   return (
