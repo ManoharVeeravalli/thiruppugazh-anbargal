@@ -84,6 +84,14 @@ export function SubHeading({ text }: { text: string }) {
   );
 }
 
+export function SubHeading1({ text }: { text: string }) {
+  return (
+    <Typography gutterBottom variant="h6" component="h3">
+      {text}
+    </Typography>
+  );
+}
+
 export function Copyright() {
   return (
     <>

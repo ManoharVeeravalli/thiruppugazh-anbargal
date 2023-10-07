@@ -27,6 +27,7 @@ import {
   IST,
   SubHeading,
   Metatags,
+  SubHeading1
 } from "../components/common";
 import Image from "next/image";
 import image1 from "../public/images/other/1-min.jpg";
@@ -1195,38 +1196,77 @@ export default function Centers(props: any) {
               </Accordion>
             </Grid>
             <Grid item md={5} xs={12} className="overflow-auto">
-              <TableContainer component={Paper}>
-                <Table size="small">
-                  <TableHead>
-                    <TableRow>
-                      <TableCell component="th">Name</TableCell>
-                      <TableCell component="th">Place</TableCell>
-                      <TableCell component="th">Phone</TableCell>
-                    </TableRow>
-                  </TableHead>
-                  <TableBody>
-                    {props.contacts.map(
-                      ({
-                        state,
-                        number,
-                        name,
-                      }: {
-                        state: string;
-                        name: string;
-                        number: string;
-                      }) => {
-                        return (
-                          <TableRow key={name}>
-                            <TableCell>{name}</TableCell>
-                            <TableCell>{state}</TableCell>
-                            <TableCell>{number}</TableCell>
-                          </TableRow>
-                        );
-                      }
-                    )}
-                  </TableBody>
-                </Table>
-              </TableContainer>
+              <Grid item>
+                <SubHeading1 text="Contacts India" />
+                <TableContainer component={Paper}>
+                  <Table size="small">
+                    <TableHead>
+                      <TableRow>
+                        <TableCell component="th">Name</TableCell>
+                        <TableCell component="th">Place</TableCell>
+                        <TableCell component="th">Phone</TableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      {props.contacts.filter((contact: any) => contact.isIndia).map(
+                        ({
+                          state,
+                          number,
+                          name,
+                        }: {
+                          state: string;
+                          name: string;
+                          number: string;
+                        }) => {
+                          return (
+                            <TableRow key={name}>
+                              <TableCell>{name}</TableCell>
+                              <TableCell>{state}</TableCell>
+                              <TableCell>{number}</TableCell>
+                            </TableRow>
+                          );
+                        }
+                      )}
+                    </TableBody>
+                  </Table>
+                </TableContainer>
+              </Grid>
+              <br/>
+              <Grid item>
+                <SubHeading1 text="Contacts Overseas" />
+                <TableContainer component={Paper}>
+                  <Table size="small">
+                    <TableHead>
+                      <TableRow>
+                        <TableCell component="th">Name</TableCell>
+                        <TableCell component="th">Place</TableCell>
+                        <TableCell component="th">Phone</TableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      {props.contacts.filter((contact: any) => !contact.isIndia).map(
+                        ({
+                          state,
+                          number,
+                          name,
+                        }: {
+                          state: string;
+                          name: string;
+                          number: string;
+                        }) => {
+                          return (
+                            <TableRow key={name}>
+                              <TableCell>{name}</TableCell>
+                              <TableCell>{state}</TableCell>
+                              <TableCell>{number}</TableCell>
+                            </TableRow>
+                          );
+                        }
+                      )}
+                    </TableBody>
+                  </Table>
+                </TableContainer>
+              </Grid>
             </Grid>
           </Grid>
           <br />

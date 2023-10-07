@@ -124,9 +124,13 @@ export default function FeedbackComments(props: { feedbacks: Feedback[] }) {
             {comments?.map(({ message, user, fid, commentedOn }) => {
               return (
                 <ListItem alignItems="flex-start" key={fid}>
-                  <ListItemAvatar>
-                    <Avatar alt={user?.displayName} src={user?.photoURL} />
-                  </ListItemAvatar>
+                  {
+                    user &&
+                    <ListItemAvatar>
+                      <Avatar alt={user.displayName} src={user.photoURL} />
+                    </ListItemAvatar>
+                  }
+
                   <ListItemText
                     primary={
                       <>
@@ -173,7 +177,9 @@ export async function getServerSideProps() {
     .get();
   const feedbacks = collection.docs.map(commentsToJSON) as Feedback[];
   for (const feedback of feedbacks) {
-    feedback.user = (await getUser(feedback.uid)).data() as User;
+    const user = (await getUser(feedback.uid)).data() as User;
+    if (!user) continue;
+    feedback.user = user;
   }
   return {
     props: {

@@ -6,32 +6,48 @@ import FolderIcon from '@material-ui/icons/Folder';
 import EventIcon from '@material-ui/icons/Event';
 import CommentIcon from '@material-ui/icons/Comment';
 import InfoIcon from '@material-ui/icons/Info';
+import BookIcon from '@material-ui/icons/Book';
+
 export const items = [
   {
-    text: `About Guruji`,
+    text: `Thiruppugazh Anbargal`,
     icon: NoteIcon,
-    link: `/`
+    items: [
+      {
+        text: `About Guruji`,
+        icon: NoteIcon,
+        link: `/`
+      },
+      {
+        text: `Golden Rules, Message from Guruji`,
+        icon: GavelIcon,
+        link: `/rules`,
+      },
+      {
+        text: `Centers in India & World`,
+        icon: PublicIcon,
+        link: `/centers`,
+      },
+      {
+        text: `Major Events & Office Bearers`,
+        icon: EventIcon,
+        link: `/events`,
+      },
+    ]
   },
-  {
-    text: `Golden Rules, Message from Guruji`,
-    icon: GavelIcon,
-    link: `/rules`,
-  },
-  {
-    text: `Centers in India & World`,
-    icon: PublicIcon,
-    link: `/centers`,
-  },
+
+
+
   {
     text: `Songs With Script & Audio`,
     icon: QueueMusicIcon,
     link: `/songs`,
   },
-  {
-    text: `Playlists`,
-    icon: QueueMusicIcon,
-    link: `/playlists`,
-  },
+  // {
+  //   text: `Playlists`,
+  //   icon: QueueMusicIcon,
+  //   link: `/playlists`,
+  // },
   {
     text: `Vel Mayil Virutham`,
     icon: FolderIcon,
@@ -52,11 +68,7 @@ export const items = [
     icon: FolderIcon,
     link: `/abhirami`,
   },
-  {
-    text: `Major Events & Office Bearers`,
-    icon: EventIcon,
-    link: `/events`,
-  },
+
   {
     text: `Paddhathi of a Bhajan`,
     icon: FolderIcon,
@@ -66,11 +78,6 @@ export const items = [
     text: `List Of Songs`,
     icon: QueueMusicIcon,
     link: `/songs-list`,
-  },
-  {
-    text: `All Songs With Meaning`,
-    icon: FolderIcon,
-    link: `/meanings`,
   },
   {
     text: `Valli Kalyanam`,
@@ -83,9 +90,9 @@ export const items = [
     link: `/virtual-bhajans`,
   },
   {
-    text: `Articles`,
-    icon: NoteIcon,
-    link: `/articles`,
+    text: `Resources`,
+    icon: BookIcon,
+    link: `/resources`,
   },
   {
     text: `Write To Us`,

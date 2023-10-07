@@ -6,6 +6,9 @@ import {
   CardContent,
   Grid,
   Typography,
+  List,
+  ListItem,
+  Link
 } from "@material-ui/core";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import Image from "next/image";
@@ -36,20 +39,47 @@ import image24 from "../public/images/articles/Felicitation-24-min.jpg";
 import image25 from "../public/images/articles/Felicitation-25-min.jpg";
 import image26 from "../public/images/articles/Felicitation-26-min.jpg";
 import image27 from "../public/images/articles/Felicitation-27-min.jpg";
-
+import { storage } from "../lib/firebase";
 import Layout from "../components/Layout";
-import { Center, Heading, Metatags } from "../components/common";
+import { Center, Heading, Metatags, SubHeading1, IST, SubHeading } from "../components/common";
 
-export default function Articles() {
+export default function Articles(props: any) {
   return (
     <Layout>
-      <Metatags title="Articles" />
+      <Metatags title="Resources" />
       <Card>
         <CardContent>
-          <Heading text="Articles" />
+          <Heading text="Resources" />
           <Grid container>
             <Grid item md={12} xs={12}>
-              <Accordion defaultExpanded>
+              <SubHeading text="TIV Book Regional" />
+              <List>
+                {props.pdfs.map(({ name, url }: { name: string; url: string }) =>
+                  <ListItem key={url}>
+                    <Link href={url} target="_blank" rel="noopener noreferrer">
+                      <Typography gutterBottom component="p">
+                        {name}
+                      </Typography>
+                    </Link>
+                  </ListItem>)}
+              </List>
+            </Grid>
+            <Grid item md={12} xs={12}>
+              <SubHeading text="All Songs With Meaning" />
+              <List>
+                {props.meanings.map(({ name, url }: { name: string; url: string }) =>
+                  <ListItem key={url}>
+                    <Link href={url} target="_blank" rel="noopener noreferrer">
+                      <Typography gutterBottom component="p">
+                        {name}
+                      </Typography>
+                    </Link>
+                  </ListItem>)}
+              </List>
+            </Grid>
+            <Grid item md={12} xs={12}>
+              <SubHeading text="Articles" />
+              <Accordion>
                 <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                   <Typography>Felicitation&apos;s to Guruji </Typography>
                 </AccordionSummary>
@@ -217,4 +247,29 @@ export default function Articles() {
       </Card>
     </Layout>
   );
+}
+
+export async function getStaticProps() {
+  const pdfsRef = await storage.ref("resources/pdfs").list();
+  const pdfs = await Promise.all(
+    pdfsRef.items.map(async (item) => {
+      const url = await item.getDownloadURL();
+      return { name: item.name, url };
+    })
+  );
+
+  const meaningsRef = await storage.ref("meanings").list();
+  const meanings = await Promise.all(
+    meaningsRef.items.map(async (item) => {
+      const url = await item.getDownloadURL();
+      return { name: item.name, url };
+    })
+  );
+  return {
+    props: {
+      pdfs,
+      meanings
+    },
+    revalidate: IST,
+  };
 }

@@ -129,31 +129,7 @@ export default function Home() {
               </Center>
             </Grid>
             <Grid item md={7}>
-              <Typography paragraph>
-                His method of teaching and ability to bring out the best even in
-                the new comers and the un initiated has attracted several.His
-                ability to pour in the bhakthi bhaava, breaking up the words in
-                the right places , so that the thaalam just falls in the right
-                place effectively. He created music of very high quality and
-                bhakthi bhaava of the highest order that even the best student
-                would reproduce only 50 %. Even that would be a great
-                achievement.
-              </Typography>
-              <Typography paragraph>
-                His method of teaching and ability to bring out the best even in
-                the new comers and the un initiated has attracted several.His
-                ability to pour in the bhakthi bhaava, breaking up the words in
-                the right places , so that the thaalam just falls in the right
-                place effectively. He created music of very high quality and
-                bhakthi bhaava of the highest order that even the best student
-                would reproduce only 50 %. Even that would be a great
-                achievement.
-              </Typography>
-            </Grid>
-          </Grid>
-          <Grid container>
-            <Grid item>
-              <Typography paragraph>
+            <Typography paragraph>
                 Thousands of young and old are spending their time usefully
                 learning and teaching THIRUPPUGAZH without whiling away their
                 time.

@@ -7,19 +7,20 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
+import Collapse from "@material-ui/core/Collapse";
 import List from "@material-ui/core/List";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import ListItem from "@material-ui/core/ListItem";
 import CloseIcon from "@material-ui/icons/Close";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ExpandLess from '@material-ui/icons/ExpandLess';
+import ExpandMore from '@material-ui/icons/ExpandMore';
 import ListItemText from "@material-ui/core/ListItemText";
 import { useRouter } from "next/router";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { items } from "../lib/drawer";
 import Link from "next/link";
 import { Avatar, Box, Grid, Paper } from "@material-ui/core";
-import { grey } from "@material-ui/core/colors";
 import { auth } from "../lib/firebase";
 import { Copyright, getUsernameFromEmail, GoogleSignIn } from "./common";
 
@@ -125,8 +126,8 @@ export default function Layout(props: any) {
           classes={
             matches
               ? {
-                  paper: classes.drawerPaper,
-                }
+                paper: classes.drawerPaper,
+              }
               : {}
           }
         >
@@ -159,25 +160,13 @@ export default function Layout(props: any) {
                 </Box>
               )}
               <List>
-                {items.map(({ text, icon: Icon, link }) => (
-                  <Link href={link} passHref key={text}>
-                    <ListItem
-                      button
-                      selected={link === asPath}
-                      divider
-                      onClick={toggleDrawer(false)}
-                    >
-                      <ListItemIcon>
-                        <Icon
-                          color={link === asPath ? "primary" : "inherit"}
-                          style={link === asPath ? {} : { color: grey[900] }}
-                        />
-                      </ListItemIcon>
-                      <ListItemText primary={text} />
-                      <hr />
-                    </ListItem>
-                  </Link>
-                ))}
+                {items.map((item) => {
+                  if (item.link) {
+                    return <ListItemLink asPath={asPath} item={item} toggleDrawer={toggleDrawer} />
+                  }
+                  return <ListItemWithSubItems item={item} asPath={asPath} toggleDrawer={toggleDrawer}/>
+
+                })}
               </List>
             </Paper>
             <Divider />
@@ -190,6 +179,42 @@ export default function Layout(props: any) {
           <Copyright />
         </main>
       </div>
+    </>
+  );
+}
+
+function ListItemLink({ item, asPath, toggleDrawer, isChild = false }: { item: any, asPath: string, toggleDrawer: (state: boolean) => () => void, isChild?: boolean }) {
+  const { text, link } = item;
+  return (<Link href={`${link}`} passHref key={text}>
+    <ListItem
+      style={isChild ? { paddingLeft: '40px' }: {}}
+      button
+      selected={link === asPath}
+      divider
+      onClick={toggleDrawer(false)}
+    >
+      <ListItemText primary={text} />
+      <hr />
+    </ListItem>
+  </Link>)
+}
+
+function ListItemWithSubItems({ item, asPath, toggleDrawer }: { item: any, asPath: string, toggleDrawer: (state: boolean) => () => void }) {
+  const [open, setOpen] = useState(false);
+  const handleClick = () => {
+    setOpen(!open);
+  };
+  return (
+    <>
+      <ListItem button divider onClick={handleClick}>
+        <ListItemText primary={item.text} />
+        {open ? <ExpandLess /> : <ExpandMore />}
+      </ListItem>
+      <Collapse in={open} timeout="auto" unmountOnExit>
+        <List component="div" disablePadding>
+          {item.items.map((item: any) => <ListItemLink asPath={asPath} item={item} toggleDrawer={toggleDrawer} isChild />)}
+        </List>
+      </Collapse>
     </>
   );
 }

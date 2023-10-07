@@ -36,7 +36,7 @@ export const analytics = firebase.analytics;
 export function commentsToJSON(doc: any): Feedback {
   const data = doc.data();
   // Gotcha! firestore timestamp NOT serializable to JSON. Must convert to milliseconds
-  return {
+    return {
     ...data,
     fid: doc.id,
     commentedOn: data.commentedOn.toMillis(),
