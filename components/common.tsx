@@ -27,6 +27,7 @@ import Image from "next/image";
 import Head from "next/head";
 import theme from "../lib/theme";
 import FacebookIcon from "@material-ui/icons/Facebook";
+import YoutubeIcon from "@material-ui/icons/YouTube";
 import google from "../public/google.png";
 import { auth, firestore, googleAuthProvider } from "../lib/firebase";
 import { DataGrid, GridColDef } from "@material-ui/data-grid";
@@ -97,13 +98,25 @@ export function Copyright() {
     <>
       <div style={{ padding: "24px" }}>
         <Grid container justifyContent="flex-end">
-          <a
-            href="https://www.facebook.com/Thiruppugazh-Anbargal-341776189325994"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <FacebookIcon />
-          </a>
+          <Grid item style={{margin: '10px'}}>
+            <a
+              href="https://www.facebook.com/Thiruppugazh-Anbargal-341776189325994"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <FacebookIcon />
+            </a>
+          </Grid>
+          <Grid item style={{margin: '10px'}}>
+            <a
+              style={{color: 'red'}}
+              href="https://www.youtube.com/@ThiruppugazhAnbargal"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <YoutubeIcon/>
+            </a>
+          </Grid>
         </Grid>
         <br />
         <Center>

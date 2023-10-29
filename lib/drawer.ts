@@ -33,11 +33,18 @@ export const items = [
         icon: EventIcon,
         link: `/events`,
       },
+      {
+        text: `Write To Us`,
+        icon: CommentIcon,
+        link: `/feedback`,
+      },
+      {
+        text: `About Us`,
+        icon: InfoIcon,
+        link: `/about-us`,
+      },
     ]
   },
-
-
-
   {
     text: `Songs With Script & Audio`,
     icon: QueueMusicIcon,
@@ -69,16 +76,8 @@ export const items = [
     link: `/abhirami`,
   },
 
-  {
-    text: `Paddhathi of a Bhajan`,
-    icon: FolderIcon,
-    link: `/paddhathi`,
-  },
-  {
-    text: `List Of Songs`,
-    icon: QueueMusicIcon,
-    link: `/songs-list`,
-  },
+
+
   {
     text: `Valli Kalyanam`,
     icon: FolderIcon,
@@ -92,16 +91,32 @@ export const items = [
   {
     text: `Resources`,
     icon: BookIcon,
-    link: `/resources`,
-  },
-  {
-    text: `Write To Us`,
-    icon: CommentIcon,
-    link: `/feedback`,
-  },
-  {
-    text: `About Us`,
-    icon: InfoIcon,
-    link: `/about-us`,
-  },
+    items: [
+      {
+        text: `TIV Book Regional`,
+        icon: BookIcon,
+        link: `/resources#books`,
+      },
+      {
+        text: `All Songs With Meaning`,
+        icon: BookIcon,
+        link: `/resources#meanings`,
+      },
+      {
+        text: `Articles`,
+        icon: BookIcon,
+        link: `/resources#articles`,
+      },
+      {
+        text: `Paddhathi of a Bhajan`,
+        icon: FolderIcon,
+        link: `/paddhathi`,
+      },
+      {
+        text: `List Of Songs`,
+        icon: QueueMusicIcon,
+        link: `/songs-list`,
+      },
+    ]
+  }
 ];

@@ -189,15 +189,22 @@ export default function Layout(props: any) {
         <main className={classes.content}>
           <Toaster />
           <Toolbar />
-          <Grid container direction="row">
-            <Grid item md={4}>
-              <Image width={500} height={500} src={Banner2} alt="banner" />
+          <Grid container direction="row" justifyContent="center" alignItems="center">
+            <Grid item md={4} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
+                <Image width={350} height={400} src={Banner2} alt="banner" />
+                <p style={{textAlign: 'center'}}>உலகமெங்கும் திருப்புகழ் பரவசெய்த குருஜி ஏ.எஸ் ராகவன் <br /> (1928-2013)</p>
+              </div>
+
             </Grid>
             <Grid item md={4} className={classes.heading}>
               <h1>Thiruppugazh Anbargal</h1>
             </Grid>
-            <Grid item md={4}>
-              <Image width={500} height={500} src={Banner1} alt="banner" />
+            <Grid item md={4} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
+                <Image width={350} height={400} src={Banner1} alt="banner" />
+                <p style={{textAlign: 'center'}}>ஶ்ரீ அருணகிரிநாதர்</p>
+              </div>
             </Grid>
           </Grid>
 

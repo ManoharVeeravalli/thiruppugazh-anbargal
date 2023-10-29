@@ -70,8 +70,6 @@ export default function AboutUs() {
             persons who gave me the technical help in developing this web site.
             They are
           </Typography>
-          <Typography paragraph>Sri Pavan Kumar our son in law,</Typography>
-          <Typography paragraph>Sri Murali Manohar his cousin</Typography>
           <Typography paragraph>
             Please pray to Senthil andavan to shower His blessings on them for a
             happy, successful and contented life and more in the service of the

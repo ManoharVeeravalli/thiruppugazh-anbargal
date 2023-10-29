@@ -60,8 +60,6 @@ export async function getStaticProps() {
     })
   );
 
-  console.log(pdfs)
-
   const files = await storage.ref("valli-kalyanam").list();
   const list = await Promise.all(
     files.items.map(async (item) => {
