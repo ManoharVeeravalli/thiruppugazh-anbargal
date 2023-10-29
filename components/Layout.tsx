@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { Toaster } from "react-hot-toast";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
+import Image from "next/image";
+import Banner from "../public/images/banner.png";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Drawer from "@material-ui/core/Drawer";
 import IconButton from "@material-ui/core/IconButton";
@@ -117,64 +119,70 @@ export default function Layout(props: any) {
             </Toolbar>
           </AppBar>
         </header>
-        <Drawer
-          className={matches ? classes.drawer : ``}
-          variant={matches ? `permanent` : `temporary`}
-          anchor="top"
-          open={state}
-          onClose={toggleDrawer(false)}
-          classes={
-            matches
-              ? {
-                paper: classes.drawerPaper,
-              }
-              : {}
-          }
-        >
-          {matches && <Toolbar />}
-          <div className={classes.drawerContainer}>
-            <Paper>
-              {!matches && (
-                <Box p={1}>
-                  <Grid
-                    container
-                    justifyContent="space-between"
-                    alignItems="center"
-                  >
-                    <Grid item>
-                      <Typography
-                        variant="h6"
-                        noWrap
-                        component="h1"
-                        className={classes.title}
-                      >
-                        Thiruppugazh Anbargal
-                      </Typography>
+        {
+          !matches &&
+          <Drawer
+            className={matches ? classes.drawer : ``}
+            variant={matches ? `permanent` : `temporary`}
+            anchor="top"
+            open={state}
+            onClose={toggleDrawer(false)}
+            classes={
+              matches
+                ? {
+                  paper: classes.drawerPaper,
+                }
+                : {}
+            }
+          >
+            {matches && <Toolbar />}
+            <div className={classes.drawerContainer}>
+              <Paper>
+                {!matches && (
+                  <Box p={1}>
+                    <Grid
+                      container
+                      justifyContent="space-between"
+                      alignItems="center"
+                    >
+                      <Grid item>
+                        <Typography
+                          variant="h6"
+                          noWrap
+                          component="h1"
+                          className={classes.title}
+                        >
+                          Thiruppugazh Anbargal
+                        </Typography>
+                      </Grid>
+                      <Grid item>
+                        <IconButton onClick={toggleDrawer(false)}>
+                          <CloseIcon />
+                        </IconButton>
+                      </Grid>
                     </Grid>
-                    <Grid item>
-                      <IconButton onClick={toggleDrawer(false)}>
-                        <CloseIcon />
-                      </IconButton>
-                    </Grid>
-                  </Grid>
-                </Box>
-              )}
-              <List>
-                {items.map((item) => {
-                  if (item.link) {
-                    return <ListItemLink key={item.text} asPath={asPath} item={item} toggleDrawer={toggleDrawer} />
-                  }
-                  return <ListItemWithSubItems key={item.text} item={item} asPath={asPath} toggleDrawer={toggleDrawer}/>
+                  </Box>
+                )}
+                <List>
+                  {items.map((item) => {
+                    if (item.link) {
+                      return <ListItemLink key={item.text} asPath={asPath} item={item} toggleDrawer={toggleDrawer} />
+                    }
+                    return <ListItemWithSubItems key={item.text} item={item} asPath={asPath} toggleDrawer={toggleDrawer} />
 
-                })}
-              </List>
-            </Paper>
-            <Divider />
-          </div>
-        </Drawer>
+                  })}
+                </List>
+              </Paper>
+              <Divider />
+            </div>
+          </Drawer>
+        }
+
         <main className={classes.content}>
           <Toaster />
           <Toolbar />
+          {/* <Image layout="responsive" src={Banner} alt="banner"/> */}
+          {matches && <TopNavWithDropDown items={items} asPath={asPath}/>}
           {props.children}
           <Copyright />
         </main>
@@ -187,7 +195,7 @@ function ListItemLink({ item, asPath, toggleDrawer, isChild = false }: { item: a
   const { text, link } = item;
   return (<Link href={`${link}`} passHref key={text}>
     <ListItem
-      style={isChild ? { paddingLeft: '40px' }: {}}
+      style={isChild ? { paddingLeft: '40px' } : {}}
       button
       selected={link === asPath}
       divider
@@ -217,4 +225,30 @@ function ListItemWithSubItems({ item, asPath, toggleDrawer }: { item: any, asPat
       </Collapse>
     </>
   );
+}
+
+function TopNavWithDropDown({ items, asPath }: { item: any[], asPath: string }) {
+  return (
+    <div className="navbar">
+      {items.map((item: any) => {
+        if (item.link) {
+          return <Link href={item.link}>
+            <a className={item.link === asPath ? 'active' : ''}>{item.text}</a>
+          </Link>
+        }
+        return <div className="dropdown">
+          <button className="dropbtn">
+            {item.text}
+          </button>
+          <div className="dropdown-content">
+            {item.items.map((subItem: any) => {
+               return <Link href={subItem.link}>
+               <a className={subItem.link === asPath ? 'active' : ''}>{subItem.text}</a>
+             </Link>
+            })}
+          </div>
+        </div>
+      })}
+    </div>
+  )
 }
