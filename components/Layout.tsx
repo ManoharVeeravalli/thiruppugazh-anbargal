@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import { Toaster } from "react-hot-toast";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import Image from "next/image";
-import Banner from "../public/images/banner.png";
+import Banner1 from "../public/images/banner1.png";
+import Banner2 from "../public/images/banner2.png";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Drawer from "@material-ui/core/Drawer";
 import IconButton from "@material-ui/core/IconButton";
@@ -60,6 +61,13 @@ const useStyles = makeStyles((theme: Theme) =>
     title: {
       flexGrow: 1,
     },
+    heading: {
+      display: 'flex',
+      alignItems: 'center',
+      fontSize: '24px',
+      textAlign: 'center',
+      color: '#e8640c'
+    }
   })
 );
 
@@ -181,8 +189,19 @@ export default function Layout(props: any) {
         <main className={classes.content}>
           <Toaster />
           <Toolbar />
-          {/* <Image layout="responsive" src={Banner} alt="banner"/> */}
-          {matches && <TopNavWithDropDown items={items} asPath={asPath}/>}
+          <Grid container direction="row">
+            <Grid item md={4}>
+              <Image width={500} height={500} src={Banner2} alt="banner" />
+            </Grid>
+            <Grid item md={4} className={classes.heading}>
+              <h1>Thiruppugazh Anbargal</h1>
+            </Grid>
+            <Grid item md={4}>
+              <Image width={500} height={500} src={Banner1} alt="banner" />
+            </Grid>
+          </Grid>
+
+          {matches && <TopNavWithDropDown items={items} asPath={asPath} />}
           {props.children}
           <Copyright />
         </main>
@@ -227,7 +246,7 @@ function ListItemWithSubItems({ item, asPath, toggleDrawer }: { item: any, asPat
   );
 }
 
-function TopNavWithDropDown({ items, asPath }: { item: any[], asPath: string }) {
+function TopNavWithDropDown({ items, asPath }: { items: any[], asPath: string }) {
   return (
     <div className="navbar">
       {items.map((item: any) => {
@@ -242,9 +261,9 @@ function TopNavWithDropDown({ items, asPath }: { item: any[], asPath: string }) 
           </button>
           <div className="dropdown-content">
             {item.items.map((subItem: any) => {
-               return <Link href={subItem.link}>
-               <a className={subItem.link === asPath ? 'active' : ''}>{subItem.text}</a>
-             </Link>
+              return <Link href={subItem.link}>
+                <a className={subItem.link === asPath ? 'active' : ''}>{subItem.text}</a>
+              </Link>
             })}
           </div>
         </div>

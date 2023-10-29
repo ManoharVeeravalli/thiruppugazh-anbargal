@@ -13,6 +13,8 @@ import image7 from "../public/images/about/about-guruji-7-min.png";
 import image8 from "../public/images/about/about-guruji-8-min.png";
 import image9 from "../public/images/about/about-guruji-9-min.png";
 import image10 from "../public/images/about/about-guruji-10-min.png";
+import image11 from "../public/images/about/content1.png";
+import image12 from "../public/images/about/content2.png";
 import info1 from "../public/images/about/about-guruji-info-1-min.png";
 import info2 from "../public/images/about/about-guruji-info-2-min.png";
 import info3 from "../public/images/about/about-guruji-info-3-min.png";
@@ -142,6 +144,16 @@ export default function Home() {
             </Grid>
           </Grid>
           <Grid container>
+          <Grid item>
+              <Center>
+                <Image src={image11} alt="guruji" />
+              </Center>
+            </Grid>
+            <Grid item>
+              <Center>
+                <Image src={image12} alt="guruji" />
+              </Center>
+            </Grid>
             <Grid item>
               <Center>
                 <Image src={info1} alt="guruji" />
