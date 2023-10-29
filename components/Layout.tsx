@@ -251,17 +251,17 @@ function TopNavWithDropDown({ items, asPath }: { items: any[], asPath: string })
     <div className="navbar">
       {items.map((item: any) => {
         if (item.link) {
-          return <Link href={item.link}>
+          return <Link key={item.text} href={item.link}>
             <a className={item.link === asPath ? 'active' : ''}>{item.text}</a>
           </Link>
         }
-        return <div className="dropdown">
+        return <div className="dropdown" key={item.text}>
           <button className="dropbtn">
             {item.text}
           </button>
           <div className="dropdown-content">
             {item.items.map((subItem: any) => {
-              return <Link href={subItem.link}>
+              return <Link href={subItem.link} key={subItem.text}>
                 <a className={subItem.link === asPath ? 'active' : ''}>{subItem.text}</a>
               </Link>
             })}
