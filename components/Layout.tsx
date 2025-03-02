@@ -193,7 +193,7 @@ export default function Layout(props: any) {
             <Grid item md={4} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
               <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
                 <Image width={350} height={400} src={Banner2} alt="banner" />
-                <p style={{textAlign: 'center'}}>உலகமெங்கும் திருப்புகழ் பரவசெய்த குருஜி ஏ.எஸ் ராகவன் <br /> (1928-2013)</p>
+                <p style={{ textAlign: 'center' }}>உலகமெங்கும் திருப்புகழ் பரவசெய்த குருஜி ஏ.எஸ் ராகவன் <br /> (1928-2013)</p>
               </div>
 
             </Grid>
@@ -203,7 +203,7 @@ export default function Layout(props: any) {
             <Grid item md={4} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
               <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
                 <Image width={350} height={400} src={Banner1} alt="banner" />
-                <p style={{textAlign: 'center'}}>ஶ்ரீ அருணகிரிநாதர்</p>
+                <p style={{ textAlign: 'center' }}>ஶ்ரீ அருணகிரிநாதர்</p>
               </div>
             </Grid>
           </Grid>
@@ -218,7 +218,25 @@ export default function Layout(props: any) {
 }
 
 function ListItemLink({ item, asPath, toggleDrawer, isChild = false }: { item: any, asPath: string, toggleDrawer: (state: boolean) => () => void, isChild?: boolean }) {
-  const { text, link } = item;
+  const { text, link, type } = item;
+  const openPdfInNewTab = (url: string) => {
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
+
+  if (type == 'pdf') {
+    return (
+      <ListItem
+        style={isChild ? { paddingLeft: '40px' } : {}}
+        button
+        selected={link === asPath}
+        divider
+        onClick={() => openPdfInNewTab(link)}
+      >
+        <ListItemText primary={text} />
+        <hr />
+      </ListItem>
+    );
+  }
   return (<Link href={`${link}`} passHref key={text}>
     <ListItem
       style={isChild ? { paddingLeft: '40px' } : {}}
@@ -269,7 +287,7 @@ function TopNavWithDropDown({ items, asPath }: { items: any[], asPath: string })
           <div className="dropdown-content">
             {item.items.map((subItem: any) => {
               return <Link href={subItem.link} key={subItem.text}>
-                <a className={subItem.link === asPath ? 'active' : ''}>{subItem.text}</a>
+                <a target={subItem.type == 'pdf' ? '_blank' : undefined} className={subItem.link === asPath ? 'active' : ''}>{subItem.text}</a>
               </Link>
             })}
           </div>

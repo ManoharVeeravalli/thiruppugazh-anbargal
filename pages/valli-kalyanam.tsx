@@ -31,7 +31,7 @@ export default function ValliKalyanam(props: any) {
             <Grid item md={12} xs={12}>
               <SubHeading text="Valli Kalyanam Book PDF" />
               <List>
-                {props.pdfs.map(({ name, url }: { name: string; url: string }) =>
+                {[{name: 'Valli Kalyanam', url: '/pdf/Valli K_0001.pdf'}].map(({ name, url }: { name: string; url: string }) =>
                   <ListItem key={url}>
                     <Link href={url} target="_blank" rel="noopener noreferrer">
                       <Typography gutterBottom component="p">
