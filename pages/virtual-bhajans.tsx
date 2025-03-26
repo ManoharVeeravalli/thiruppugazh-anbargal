@@ -94,7 +94,7 @@ export async function getStaticProps() {
   const doc = await firestore.collection("other").doc("bhajans").get();
   return {
     props: {
-      list: doc?.data()?.data,
+      list: doc?.data()?.data.reverse(),
     },
     revalidate: IST,
   };

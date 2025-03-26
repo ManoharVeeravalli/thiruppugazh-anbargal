@@ -51,7 +51,7 @@ export default function Events(props: any) {
                   <ListItemIcon>
                     <EventIcon />
                   </ListItemIcon>
-                  <ListItemText primary={date} secondary={event} />
+                  <ListItemText primary={date} secondary={<p dangerouslySetInnerHTML={{ __html: event }}></p>} />
                 </ListItem>
               ))}
             </List>
@@ -319,7 +319,7 @@ export default function Events(props: any) {
                 <Accordion>
                   <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                     <EventIcon />
-                    <Typography>2008 - 2022</Typography>
+                    <Typography>2008 - 2024</Typography>
                   </AccordionSummary>
                   <TableContainer>
                     <Table size="small">
@@ -339,7 +339,10 @@ export default function Events(props: any) {
                             2017-2018,2018-2019
                           </TableCell>
                           <TableCell component="th">
-                            2021-
+                            2021 - 2023
+                          </TableCell>
+                          <TableCell component="th">
+                            2024
                           </TableCell>
                         </TableRow>
                       </TableHead>
@@ -351,6 +354,7 @@ export default function Events(props: any) {
                           <TableCell>Sri KN Krishnamurthy</TableCell>
                           <TableCell>Sri KN Krishnamurthy</TableCell>
                           <TableCell>Sri Ganesh Sundaram</TableCell>
+                          <TableCell>Sri Ganesh Sundaram</TableCell>
                         </TableRow>
                         <TableRow>
                           <TableCell>VICE PRESIDENT</TableCell>
@@ -358,6 +362,7 @@ export default function Events(props: any) {
                           <TableCell>Sri Ganesh Sundaram</TableCell>
                           <TableCell>Sri Ganesh Sundaram</TableCell>
                           <TableCell>Sri Ganesh Sundaram</TableCell>
+                          <TableCell>Sri K Balasubramanian</TableCell>
                           <TableCell>Sri K Balasubramanian</TableCell>
                         </TableRow>
                         <TableRow>
@@ -367,6 +372,7 @@ export default function Events(props: any) {
                           <TableCell>Sri R Nagesh</TableCell>
                           <TableCell>Sri R Nagesh</TableCell>
                           <TableCell>Sri R Nagesh</TableCell>
+                          <TableCell>Sri N. Santhanam</TableCell>
                         </TableRow>
                         <TableRow>
                           <TableCell>JOINT SECRETARY</TableCell>
@@ -375,11 +381,13 @@ export default function Events(props: any) {
                           <TableCell>Smt S.Padma</TableCell>
                           <TableCell>-</TableCell>
                           <TableCell>Sri N Santhanam</TableCell>
+                          <TableCell>Sri Subramanian Raghavan</TableCell>
                         </TableRow>
                         <TableRow>
                           <TableCell>TREASURER</TableCell>
                           <TableCell>Sri N.Ramamurthi</TableCell>
                           <TableCell>Sri N Rajan</TableCell>
+                          <TableCell>Sri JA Kuppu Subramanian</TableCell>
                           <TableCell>Sri JA Kuppu Subramanian</TableCell>
                           <TableCell>Sri JA Kuppu Subramanian</TableCell>
                           <TableCell>Sri JA Kuppu Subramanian</TableCell>
@@ -411,6 +419,15 @@ export default function Events(props: any) {
                               <li>Sri A.S. Nagarajan (Coopted Member)</li>
                             </ol>
                           </TableCell>
+                          <TableCell>
+                          <ol>
+                              <li>Dr.Girija Krishnan </li>
+                              <li>Girija Ramanathan </li>
+                              <li>Aparna Gopalakrishnan</li>
+                              <li>Dharini Ganesh </li>
+                              <li>Jayasree Vaideeswaran </li>
+                            </ol>
+                          </TableCell>
                         </TableRow>
                         <TableRow>
                           <TableCell>
@@ -436,6 +453,13 @@ export default function Events(props: any) {
                             <ol>
                               <li>Sri Ramnath Mani</li>
                               <li>Sri S.G. Ramakrishnan</li>
+                              <li>Smt Rajalakshmi Balasubramanian</li>
+                            </ol>
+                          </TableCell>
+                          <TableCell>
+                            <ol>
+                              <li>Sri Ramnath Mani</li>
+                              <li>Sri Kannamma Sundaram </li>
                               <li>Smt Rajalakshmi Balasubramanian</li>
                             </ol>
                           </TableCell>

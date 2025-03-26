@@ -64,8 +64,8 @@ export default function Articles(props: any) {
                   </ListItem>)}
               </List>
             </Grid>
-            <Grid item md={12} xs={12}>
-              <SubHeading text="All Songs With Meaning" />
+            <Grid item md={12} xs={12} id="meanings-by-nr">
+              <SubHeading text="All Songs With Meaning By NR" />
               <List>
                 {props.meanings.map(({ name, url }: { name: string; url: string }) =>
                   <ListItem key={url}>
@@ -75,6 +75,34 @@ export default function Articles(props: any) {
                       </Typography>
                     </Link>
                   </ListItem>)}
+              </List>
+            </Grid>
+            <Grid item md={12} xs={12} id="meanings-by-crk">
+              <SubHeading text="All Songs With Meaning By CRK" />
+              <List>
+                {[
+                  "./pdf/Songs1-4,V Agavalbook1-1.pdf",
+                  "./pdf/Songs5-52 book2.pdf",
+                  "./pdf/Songs57-113 book3.pdf",
+                  "./pdf/Songs114-145 book4.pdf",
+                  "./pdf/Songs146-202 book5.pdf",
+                  "./pdf/Songs203-249 book6.pdf",
+                  "./pdf/Songs250-322book7-2.pdf",
+                  "./pdf/Songs323-372 book8-1.pdf",
+                  "./pdf/Songs373-421 book9.pdf",
+                  "./pdf/Songs422-493 book10.pdf",
+                  "./pdf/Songs494-501book11.pdf",
+                  "./pdf/Krishna Leela Songs.pdf",
+                  "./pdf/Ramayanam Songs.pdf"
+                ].map((url: string) =>
+                  <ListItem key={url}>
+                    <Link href={url} target="_blank" rel="noopener noreferrer">
+                      <Typography gutterBottom component="p">
+                        {url.substring(url.lastIndexOf('/') + 1)}
+                      </Typography>
+                    </Link>
+                  </ListItem>
+                )}
               </List>
             </Grid>
             <Grid item md={12} xs={12}>
@@ -265,6 +293,11 @@ export async function getStaticProps() {
       return { name: item.name, url };
     })
   );
+  meanings.sort((a, b) => {
+    let n1 = +a.name.split('.')[0];
+    let n2 = +b.name.split('.')[0];
+    return n1 - n2;
+  })
   return {
     props: {
       pdfs,

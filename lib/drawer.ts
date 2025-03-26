@@ -18,6 +18,11 @@ export const items = [
         link: `/`
       },
       {
+        text: `Guru Anjali`,
+        icon: InfoIcon,
+        link: `/guru-anjali`,
+      },
+      {
         text: `Golden Rules, Message from Guruji`,
         icon: GavelIcon,
         link: `/rules`,
@@ -97,9 +102,14 @@ export const items = [
         link: `/resources#books`,
       },
       {
-        text: `All Songs With Meaning`,
+        text: `All Songs With Meaning By NR`,
         icon: BookIcon,
-        link: `/resources#meanings`,
+        link: `/resources#meanings-by-nr`,
+      },
+      {
+        text: `All Songs With Meaning By CRK`,
+        icon: BookIcon,
+        link: `/resources#meanings-by-crk`,
       },
       {
         text: `Articles`,
@@ -128,92 +138,12 @@ export const items = [
         link: "./pdf/Thaalam details_0001.pdf",
         type: 'pdf'
       },
+      {
+        text: `Souveneirs`,
+        icon: QueueMusicIcon,
+        link: "/souveneirs",
+      },
     ]
-  },
-  {
-    text: `Meanings`,
-    icon: BookIcon,
-    items: [
-      {
-        text: `Songs1-4, V Agavalbook1-1`,
-        icon: "",
-        link: "./pdf/Songs1-4,V Agavalbook1-1.pdf",
-        type: 'pdf'
-      },
-      {
-        text: `Songs5-52 book2`,
-        icon: "",
-        link: "./pdf/Songs5-52 book2.pdf",
-        type: 'pdf'
-      },
-      {
-        text: `Songs57-113 book3`,
-        icon: "",
-        link: "./pdf/Songs57-113 book3.pdf",
-        type: 'pdf'
-      },
-      {
-        text: `Songs114-145 book4`,
-        icon: "",
-        link: "./pdf/Songs114-145 book4.pdf",
-        type: 'pdf'
-      },
-      {
-        text: `Songs146-202 book5`,
-        icon: "",
-        link: "./pdf/Songs146-202 book5.pdf",
-        type: 'pdf'
-      },
-      {
-        text: `Songs203-249 book6`,
-        icon: "",
-        link: "./pdf/Songs203-249 book6.pdf",
-        type: 'pdf'
-      },
-      {
-        text: `Songs250-322book7-2`,
-        icon: "",
-        link: "./pdf/Songs250-322book7-2.pdf",
-        type: 'pdf'
-      },
-      {
-        text: `Songs323-372 book8-1`,
-        icon: "",
-        link: "./pdf/Songs323-372 book8-1.pdf",
-        type: 'pdf'
-      },
-      {
-        text: `Songs373-421 book9`,
-        icon: "",
-        link: "./pdf/Songs373-421 book9.pdf",
-        type: 'pdf'
-      },
-      {
-        text: `Songs422-493 book10`,
-        icon: "",
-        link: "./pdf/Songs422-493 book10.pdf",
-        type: 'pdf'
-      },
-      {
-        text: `Songs494-501book11`,
-        icon: "",
-        link: "./pdf/Songs494-501book11.pdf",
-        type: 'pdf'
-      },
-      {
-        text: `Krishna Leela Songs`,
-        icon: "",
-        link: "./pdf/Krishna Leela Songs.pdf",
-        type: 'pdf'
-      },
-      {
-        text: `Ramayanam Songs`,
-        icon: "",
-        link: "./pdf/Ramayanam Songs.pdf",
-        type: 'pdf'
-      },
-
-    ],
   },
   {
 

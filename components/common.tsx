@@ -121,7 +121,7 @@ export function Copyright() {
         <br />
         <Center>
           <Typography variant="caption">
-            Copyright © 2021 by Thiruppugazh Anbargal. All rights reserved.
+            Copyright © 2025 by Thiruppugazh Anbargal. All rights reserved.
           </Typography>
         </Center>
       </div>
