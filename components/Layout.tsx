@@ -88,7 +88,7 @@ export default function Layout(props: any) {
   return (
     <>
       <div className={classes.main}>
-        <header>
+        <header >
           <AppBar position="fixed" className={classes.appBar} color={"default"}>
             <Toolbar>
               {!matches && (

@@ -120,8 +120,8 @@ export function Copyright() {
         </Grid>
         <br />
         <Center>
-          <Typography variant="caption">
-            Copyright © 2025 by Thiruppugazh Anbargal. All rights reserved.
+          <Typography variant="caption" >
+            <p title="17/May/2025">Copyright © 2025 by Thiruppugazh Anbargal. All rights reserved.</p>
           </Typography>
         </Center>
       </div>

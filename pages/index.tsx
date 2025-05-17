@@ -44,155 +44,73 @@ export default function Home() {
             </Grid>
             <Grid item md={9}>
               <h1>OUR GURUJI</h1>
-              <Typography paragraph><i>
-                The life of Sri A S Raghavan has been a saga of total surrender to the Lord of Chendil whose grace has been pervading his personality from infant-hood to the present day So in appreciating Sri Raghavan&apos;s services in the Tiruppugazh field, the focus has to be distinctly separate In other words, Sri Raghavan is an ordinary human being but only his transfor med role with the appellation of &apos;guruji&apos; he has offered to the society at large the gift of the Lord by tuning Arunagu inathar&apos;s hymns to chaste carnatic ragas set to chanda Tala as so ordained
-              </i></Typography>
-              <Typography paragraph><i>
-                Sri Raghavan was born on 4th september 1928 at Tuticorin as the second son of subbiah sastrigal and ramalakshmı Ammal of Arumugamangalam, in tirunelveli district Born ina middle class famıly of moder ate means sri Raghavan as a child was afflicted with debilitating illness such as small pox, dıarı hoea etc and added to that he was a victim of polio The Child&apos;s restoration to normal health and mobility was posing an intractable problem when through divine intervention one Sıvalınga nadar of padaravılaı village, anexpert in the indigenous system of Orthopaedics offered to treat the child He took up the treatment only after taking an under taking that the child will be offered to chendil Andavan After the treatment lasting for about for ty days, signs of recovery through the strengthening of the affected leg ofthe child was perceptible At that stage as arıanged earlier, the child was taken to Thu uchendur In those days nearly seven decades back the approach to the chendil Andavan&apos;s temple at Tiruchendur on the shoir es of the Bay of Bengal for nearly a mile from the Vinayagar temple was through loose sand When child Raghavan was taken by the parents upto the vinayagar temple, the child began running towards the chendıl Andavan&apos;s temple to the surprise of all leaving others behind and heading straight to shunmuga vilas and on reaching the sanctum crying back &apos;appa&apos; &apos;Amma&apos;, a magic tı ansformation from a sick polio - ridden child to a normal child with mobility and expression This initial phase of God&apos;s acceptance of the child and benediction to walk around the world normally must have created in the child&apos;s mind a deep devotion to the lord and face the future life in the path to be laid from time to time by the Lord
-              </i></Typography>
-              <Typography paragraph><i>
-                Sri Raghavan hadhis schooling in Tuticorin After finishing school he straightaway went in search of a job initially in nagpur and later settled down in bombay for a considerable period of his early youthful days It is during his stay at Bombay that his innate interest inMusic began to unfold intself Born in a family with musical attainments it was no wonder that Si Raghavan, under the tutelage of Sangeetha Bushanam Vaidyanatha bhaghavathar and Gana Bhusanam Vaidyanatha Bhagavathar attained high standards of proficiency in car natic music Later si Raghavan took up a job at New Delhi, and there also continued to hone up his musical talents by associating himself with kadayam kı ıshnamoorthy and participating in music festivals Incidentally it needs to be mentioned that sı ı Raghavan is a graded ar tiste of the All India Radio (AIR) and he is giving frequent per formances in classical carnatic music Thus he continues tokeep in touch with classical carnatic music
-              </i></Typography>
-              <Typography paragraph><i>
-                It was in 1958 that his two fi iends Sıı R Narayanan and Sıı M Mahalıngam came up with a request ot si Raghavan to teach Tiruppugach songs Until this time sıı Raghavan had no special acquaintance with thiruppugach Thus this request fi om two fi iends of whom one was a vaishnavite was to be the starting point for the great mission Sıı Raghavan was destined to lead and it was the Lords wish that Sıı Raghavan should populaise the compositions of Ar unagın inathai to the world at large It has to be appreciated in this context that the personality of Si Raghavan was although guided by the early divine experience at the Lord&apos;s feet as it were at the most sacı ed (Maha Punitham Thangıya) temple at Tu uchendur The divine spark continued to inspire Si Raghavan and after the initial introduction to Thu upugach Sit Raghavan began a deep study of the saint&apos;s compositions and became totally immer sed in it as time went on The light of the divine guided him  ight thì ough and inspired him to set to tune one by one, Ai unagın inathai&apos;s Thu uppugazh songs Bestowed with anch voice and spuned by devotion and talent confened by the Lord Si Raghavan attı acted attentionfiom the lay public and the knowledgeable The appeal of the songs as tuned, in appi opriate ragas conforming to the chanda tala was making waves as it were thi ough out the length and breadth of the country It was in 1958 that clssses were started in Mi Sundaram&apos;s (Brother-in-law of Si Raghavan) flat at connaught place in new delhi From small beginnings it swelled into a mighty movement with classes spread over entue new Delhi Area As if by divine guidance a distinctive pattern of recital of the songs in a Bhajan was introduced with emphasis on devotion and discipline Apart fiom the inti insic appeal of the songs what att acted the increasing number of participants was the way the songs were taught with clear diction with emphasis onwords and bhava to convey the import of the words used by Ai unagın inathar By God&apos;s will the uniformity obtained in absor bing what is taught has been such that in a mass prayer during each bhajan the ieder ing sychronises as though in one voice
-              </i></Typography>
-              <Typography paragraph><i>
-                Apart from standardising the pattern of a Bhajan duly allowing for different works of the Saint such as thiruppugazh, Alankaram, Andhatı, Anubhuti, Vel, Mayıl, and seval Vrithangals and Thiruvahupugal, the tuning of thu uezhukootı ukkai is a marvel indeed andits recital in finalı eaches with a crescendo is an enthi alling experience No wonder the movement began spreading to Bombay Bangalore, Chennai and Calcutta
-              </i></Typography>
-              <Typography paragraph><i>
-                It is in handling the problems of expansion that the administitive capacity of S11 Raghavan came ot the fore In the first place the movement was sustained by constant touch with all these centres on major occasions such as Ar unagırınathar day on 15 August, padıvızha in the new year Skanda Shashti, Pangunı Uttaram etc Each centre has its own important festival to benefit from Guruji Sri Raghavan,s participation With sustained expansion the need for proper organisational set up provisionof teachers and availability of books had to be looked into Organisationally Thiruppugazh Anbargal (Regd) with Si Raghavan as president was set up And it helped smoothen out financial and infi astructural problems By divine grace the demand for teachers was automatically met with necessary number of competent teachers migrating from delhi Initially the students had to depend on supply of books from private agencies containing assorted Thiruppugazh songs As this was not satisfactory, Thiruppugach Isaı Vazhıpaddu with all the songs (430) taught by Sri Raghavan was broughtout It became very popular and a third edition of the books is being shortly released Earlier
-              </i></Typography>
-              <Typography paragraph><i>
-                Thu uppugazh Madanı&apos; containing all the available works of Arunagirinathan was brought out
-
-
-              </i></Typography>
-              <Typography paragraph><i>
-                Among some notable events in Sıı Raghavan&apos;s life and association the following deserve special mention
-              </i></Typography>
-              <Typography paragraph><i>
-                a Sıı Raghavan&apos;s services to the Thu uppugach movement are greatly appreciated by the Heads of the Mutt Sit Abhinava Vidyathu tha Swamigal had great personal affection and apreciation of Sit Raghavan&apos;s services and he demonstı ated it as such with a wish that Sıı Raghavan&apos;s Shastrabdhapooi thi should be celebrated at Sringeri and so it was He confened the title of Thu uppugach Tondar on him The reigning head of the Mutt his Holiness Bharathi Theer tha Swamigal equally showers his affectionand benediction on Si Raghavan Sımılarly then Holinesses Jayendı a Saraswathi Swamigal and Vijayendra Saı aswathi Swamigal of kanchi mutt continue to bless the services of Sii Raghavan Another great head of Sivananda Ashram, divine life Society, Rishikesh, Swamı Chidanandji Maharaj has expressed his appreciation by confen ing the title of &apos;Bhaktha Ratna&apos;
-              </i></Typography>
-              <Typography paragraph><i>
-                b Great scholars in tamil such as the Late Ki Va Ja, then editor of Kalaimagal was a great admuer of Guun&apos;s Thu uppugazh Tondu and their association was very close That link still continues in an institutionalised form through the celebration of Kı Va Ja&apos; day Many others of repute in the literary and pravachana field such as Late Thu umuruga Kı ıpananda vana, late Sı Keeran and many others were intimately associated with the activities gener ated under Srı Rgahavan&apos;s leadership by thi tuppugazh Anbar gal
-              </i></Typography>
-              <Typography paragraph><i>
-                c The deepest association of Guruji, almost on a daily basis was with later ramnad Easwar iei, a Mridanga Vidwan attached to the all India Radio The Bhajans at whichEaswarner participated along with late Sri Narayanan on the Harmonium were the most enjoyable as the synchronisation was perfect The ti to enjoyed a rare 1 apport which lasted for a couple of decades Another musician of repute in the concert platforms, later Sıı Devakottai Sundar araja Iyengar, a Kanju a player, played a great part in encouraging Si Raghavan on his work
-              </i></Typography>
-              <Typography paragraph><i>
-                d Apart from Thu uppugazh, another memorable service Sri Raghavan has rendered is in setting to tune Abhu amı Andathı and Abhiramı Padhikam which ar e very popular and they are recited by the ladies on important occasions sacred to Ambal
-              </i></Typography>
-              <Typography paragraph><i>
-                e The most important contı ibution towards ensuring the purity of the songs taught for posterity was the release in 1996 of 37 cassettes containing 430 songs and a model Bhajan This enables teachers also to refresh themselves for their own benefit
-              </i></Typography>
-              <Typography paragraph><i>
-                f The spread of Thiruppugazh overseas has been given further fillıp by Guruji&apos;s visit to UK in 1980 and 1998, Canada in 1988 and 1991, USA thrice in 1988, 1990 and 1997 This has resulted in a branch being established in the US A-chicago Chapter
-              </i></Typography>
-              <Typography paragraph><i>
-                It was the great yudhishtıra who in reply to yaksha pi asna saıd Bharya Deivakrutha Sakha&apos; In the case of Si Raghavan, God had ordained that Smı Janakı should be his life partner She has been an ideal companion in very sense of the word Transported as an unlettered young girl from a village on the banks of the Thambraba anı river inTirunelveli District to a totally different environment in cities like Bombay and New Delhi She adjusted her self initially as an ordinary houswife and later with Gurujı emerging into the society as a great savant she not only rose to the challenges of the new status but by sheer will power and devotion proved an inseparable part in Thiruppugazh Bhajans by providing vocal support fully in tune and diction She is an example of how even a very  aw student with absolutely no pretensions to musical knowledge much less its grammar can succeed in reciting the Thu uppugazh songs as taught by Guruji
-              </i></Typography>
-              <Typography paragraph><i>
-                Tributes by eminent persons appear elsewhere in the Souvenn May Chendil Andavan continue to inspue Guruji Si Raghavan in every continuing his mission and bless him with long life and prosperity
-              </i></Typography>
-
-              <Typography paragraph><i>
-                There is no other way to succeed than to draw the mind back every time it turns outwards and fix it in the Self There is no need for meditation of mantra or japa or dhyana or anything of the sort, because these are our real nature.  All that is needed is to give up thinking of objects other than the Self.
-              </i></Typography>
-
-              <Typography paragraph><i>
-                Meditation is not so much thinking of the Self as giving up thinking of the non-Self.
-                When you give up thinking of outward objects and prevent your mind from going outwards and turn it inwards and fix it in the Self, the Sc&apos;f alone will remain.
-                The more you get fixed in the Self, the more other thoughts will drop off of themselves.
-                The mind is nothing but a bundle of thoughts, and the &apos;I&apos;- thought is the root of all of them When you see who this &apos;l&apos; is and whence it proceeds, all thoughts get merged in the Self
-              </i></Typography>
-
-              <Typography paragraph><i>
-                Regulation of life, such as getting up at a fixed hour, bathing, doing mantra, japa, etc., observing ritual, all this is for people who do not feel drawn to Self-enquiry or are not capable of it But for those who can practise this method, all rules and discipline are unnecessary.
-                Bhagavan Sri Ramana Maharshı (Day by Day, 18-7-1946)
-              </i></Typography>
-
-              <Typography paragraph><i></i></Typography>
-
-              <Typography paragraph><i></i></Typography>
-
-              <Typography paragraph><i></i></Typography>
-
-              <Typography paragraph><i></i></Typography>
-              <hr />
-
               <Typography paragraph>
-                Guruji Sri AS Raghavan has had a life of miracles. He was an
-                extraordinary man, recognized by one and all as superhuman and
-                as an evolved soul.
+                Guruji Sri AS Raghavan was born on Sep 4,1928 in Arumugamangalam in Tirunelveli district of Tamil Nadu.His job took him to Bombay and Delhi.In 1958 in Delhi ,in response to request from a couple of friends ,he entered into the world of Thiruppugazh and then there was no turning back.It was divine will and his perseverance that he created this wonderful world of Thiruppugazh Anbargal which has benefitted thousands of people.
               </Typography>
               <Typography paragraph>
-                Early in life he had the kataksham of Thirucchendur Murugan
-                after which a polio afflicted crippled child started walking
-                overnight.
+                The satisfaction that one gets in singing Thiruppugazh, set to Carnatic ragams and complex thaalams with bhakti gave immense happiness to the common man,there seemed to be a magnetic attraction towards Guruji,the bhajan,the discipline and the bhakti
               </Typography>
               <Typography paragraph>
-                Kanchi Maha periyavaa has blessed him several times. During the
-                Arunigirinathar stamp release function, there were several
-                hurdles.From Kanchipuram a person landed up with prasadam and
-                assuring message from maha periyavaa that all will be well.It
-                was sheer divine grace that the function went off without any
-                glitches.
+                He was a man of extraordinary talent and bhakti, recognized and loved by one and all
               </Typography>
               <Typography paragraph>
-                Sringeri periyavas personally blessed and conducted Gurujis
-                sashtiabdapoorthy function in the mutt under his supervision.He
-                has said Raghavan is not an ordinary soul. He is a
-                madaathipathi.
+                Early in life he had the kataksham of Thirucchendur Murugan and a polio afflicted crippled child started walking overnight.
               </Typography>
               <Typography paragraph>
-                Jayendra saraswati Swami from Kanchi Mutt conferred the title of
-                Thiruppugazh Isai Chakravarthi.
+                Kanchi Maha periyavaa has blessed him several times. During the Arunigirinathar stamp release function , there were several hurdles.From Kanchipuram a person came all of a sudden with prasadam and an assuring message from Maha Periyavaa that all will be well.It was sheer divine grace that the function went off without any glitches.
               </Typography>
               <Typography paragraph>
-                Ki Vaa Ja had high regards for Guruji and always mentioned his
-                name in his speeches.
+                Sringeri Periyavas personally blessed and Guruji’s Sashtiabdapoorthy function was conducted in the Mutt.He has said
               </Typography>
               <Typography paragraph>
-                Various Swamijis like Chidananda, Dayananda Saraswati, Senthil
-                Thuravi, Saadhuram and several others had shown their admiration
-                considering him an evolved extraordinary soul Sri R
-                Venkatraman,the then President of India, had invited Guruji to
-                the residence several times for his bhajans.
+                ‘<b>Raghavan is not an ordinary  soul. He is a Madaathipathi.</b>’
               </Typography>
               <Typography paragraph>
-                Srimathi DK Pattamal - you can become a millionare overnight if
-                you commercialise Thiruppugazh.
+                Jayendra saraswati swami from Kanchi mutt conferred the title of
               </Typography>
+              <Typography paragraph>
+                ‘<b>Thiruppugazh Isai Chakravarthi</b>’.
+              </Typography>
+              <Typography paragraph>
+                Krupananda Warriar has blessed Guruji
+              </Typography>
+              <Typography paragraph>
+                Ki Vaa Ja had high regards for Guruji and always mentioned his  name in his speeches.
+              </Typography>
+
             </Grid>
           </Grid>
           <Grid container spacing={3}>
             <Grid item md={7}>
               <Typography paragraph>
-                His wife and children feel all the music and setting to ragam
-                and thaalam happened only with divine will as they have never
-                seen him practicing or singing.
+                Various Swamijis like Chidananda, Dayananda Saraswati, Senthil Thuravi, Saadhuram
               </Typography>
               <Typography paragraph>
-                There have been thousands of disciples and many of them followed
-                his music pattern, and way of life , teachings to the last
-                letter. These staunch disciples have taken the movement far and
-                wide and in a span of 60 years taken it the world over.
+                and several others had shown their admiration, considering him.
               </Typography>
               <Typography paragraph>
-                Technology and the great efforts of some have made the 505
-                songs,vel mayil seval viruthams,vaguppus,Abhirami Andadi and
-                Padikam set to Ragam and thaalam, saved for the generations to
-                come.
+                ‘<b>An evolved extraordinary soul</b>’
               </Typography>
               <Typography paragraph>
-                His method of teaching and ability to bring out the best even in
-                the new comers and the un initiated has attracted several.His
-                ability to pour in the bhakthi bhaava, breaking up the words in
-                the right places , so that the thaalam just falls in the right
-                place effectively. He created music of very high quality and
-                bhakthi bhaava of the highest order that even the best student
-                would reproduce only 50 %. Even that would be a great
-                achievement.
+                Sri R Venkatraman,the then Vice President of India ,  had invited Guruji to his residence several times for his bhajans.
+              </Typography>
+              <Typography paragraph>
+                Srimathi DK Pattamal said
+              </Typography>
+              <Typography paragraph>
+                '<b>You can become a millionare overnight if you commercialise Thiruppugazh .</b>’
+              </Typography>
+              <Typography paragraph>
+                His wife and children felt, all the music and setting to ragam and thaalam happened only with divine will ,as they had never seen him practicing or singing.
+              </Typography>
+              <Typography paragraph>
+                There have been a large number of disciples but a handful of them followed his music pattern, and way of life and teachings to the last letter. These staunch disciples have taken the movement far and wide and in a span of 70 years, taken it the world over.
+              </Typography>
+              <Typography paragraph>
+                Technology and the great efforts of some have made the 505 songs , set to Ragam and thaalam,saved as recordings for the generations to come.
+              </Typography>
+              <Typography paragraph>
+                His method of teaching  and ability to bring out the best, even in the new comers and the un initiated has attracted several.His ability to pour in the bhakthi bhaava, breaking up the words in the right places , so that the thaalam just falls in the right place effectively. Is extra ordinary .He created music of very high quality and bhakthi bhaava of the  highest order. He practiced Anbu and Aviridham and expected all of us to practice it too.
               </Typography>
             </Grid>
             <Grid item md={5}>
@@ -209,19 +127,72 @@ export default function Home() {
             </Grid>
             <Grid item md={7}>
               <Typography paragraph>
-                Thousands of young and old are spending their time usefully
-                learning and teaching THIRUPPUGAZH without whiling away their
-                time.
+                Thousands of young and old are spending their spare time usefully learning and teaching THIRUPPUGAZH without whiling away their time.
               </Typography>
               <Typography paragraph>
-                This movement has appealed to the masses - irrespective of
-                Tamil, Telugu, Malayalam or Kannada origin – because of the high
-                quality of music ,devotion and bhakthi bhaava.
+                This movement has appealed to the masses – irrespective of being of Tamil, Telugu, Malayalam, Kannada or Maharashtrian origin – because of the high quality of music , devotion and bhakthi bhaava .
               </Typography>
+              <Typography paragraph>
+                Today the Thiruppugazh Anbargal are seen all across the globe.To mention a few, there are over ten centres in the US,several in Canada and London,also in Dubai,Abudabi ,Malaysia and Singapore.Of course in India it has spread from Delhi to Chennai,Bombay,Bangalore,Pune,Hyderabad,Coimbatore,Trivandrum,Indore,Bhopal,Chandigarh,Calcutta and a few more places.
+              </Typography>
+              <Typography paragraph>
+                The recordings of the 505 songs, Anubhuti, Vel Mayil Seval Viruthams, Vaguppugal tuned and sung by him is a great boon and is being used across the globe by teachers and students to learn Thiruppugazh.
+              </Typography>
+              <Typography paragraph>
+                He has tuned the Abhirami Andadi and Abhirami Padikam and recorded them also.
+              </Typography>
+              <Typography paragraph>
+                He has done a Selection of appropriate songs from Thiruppugazh to bring out the concept of the union of the Jivatma to Paramatma which has been beautifully brought out in the Valli Kalyanam.
+              </Typography>
+              <Typography paragraph>
+                Guruji was a living legend and we are blessed to have lived during his time and have had close association with him.
+              </Typography>
+
             </Grid>
           </Grid>
           <Grid container>
             <Grid item>
+              <Typography paragraph>
+                With the advent of modern modes of communication like WA,Facebook,youtube and website ,the information,the music and the movement is spreading faster.
+              </Typography>
+              <Typography paragraph>
+                We now have a <b>Thiruppugazh International</b> WA group which has representative members from every centre in the world and all are encouraged to share their views and events in this group.This way, all are aware of the events and are able to participate as they travel.
+              </Typography>
+              <Typography paragraph>
+                We also have a <b>Thiruppugazh global teachers</b> WA group which has enrolled teachers from every centre.The teachers have a meet every month where in they are given the nuances of each song by a team of senior experts.
+              </Typography>
+              <Typography paragraph>
+                All attempts are being made to preserve the correct singing,thaalam,proper pronunciation and following of the paddhati set by Guruji for conducting a Thiruppugazh isai Vazhipadu.
+              </Typography>
+              <Typography paragraph>
+                The school children are being trained in several cities and we now have a large youth brigade.
+              </Typography>
+              <Typography paragraph>
+                All this will ensure that the legacy of Guruji will go on.
+              </Typography>
+              <Typography paragraph>
+                His other facets have been-he was a skilled Carnatic music exponent and a regular AIR artiste,participation in Hari Bhajans,playing lead roles in some Tamil dramas
+              </Typography>
+              <Typography paragraph>
+                We are now getting ready for Gurujis centenary celebration where we hope to include every single anbar in this world.Hoping to celebrate the same over two years with events and TIVs in several centres
+              </Typography>
+              <Typography paragraph>
+                Many of the direct disciples of Guruji have reached the feet of Senthil Andavan,the responsibility of carrying this movement forward lies on the present generation
+              </Typography>
+              <Typography paragraph>
+                Guruji attained the Lotus feet of Senthil Andavan on 17.5.2013
+              </Typography>
+              <div style={{
+                width: '60%',
+                margin: 'auto',
+                textAlign: 'center',
+              }}>
+                <Typography paragraph>
+                  <b>Thiruppugazh by Arunagirinathar and music and divinity added by our Guruji Sri A.S.Raghavan is appealing to everyone, young and old.It is therefore our responsibility to handover this Navaratna to the next generation without any changes.</b>
+                </Typography>
+                <Typography paragraph>🙏 குருவே சரணம் 🙏</Typography>
+              </div>
+
               <Center>
                 <Image src={image11} alt="guruji" />
               </Center>

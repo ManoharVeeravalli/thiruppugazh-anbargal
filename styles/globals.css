@@ -121,3 +121,9 @@ iframe.song {
 .dropdown:hover .dropdown-content {
   display: block;
 }
+.vel-mayil-table {
+  width: 100%;
+}
+.vel-mayil-table th {
+  text-align: left;
+}
