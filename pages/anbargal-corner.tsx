@@ -2,7 +2,7 @@ import { Card, CardContent, Typography } from "@material-ui/core";
 import { Heading, Metatags } from "../components/common";
 import Layout from "../components/Layout";
 import Image from "next/image";
-import umaBook from '../public/images/anbargal-corner/uma-book.jpg';
+// import guru1 from "../public/images/anbargal-corner/uma-book.png";
 
 
 export default function AnbargalCorner() {
@@ -20,7 +20,7 @@ export default function AnbargalCorner() {
             <Typography>
                 <h4 id="uma-balasubramanian-books">Uma Balasubramanian Books</h4>
             </Typography>
-            <Image src={umaBook} />
+            {/* <Image src={guru1} alt="uma book"/> */}
             <br />
             <div id="youtube-links">
                 <Typography>
