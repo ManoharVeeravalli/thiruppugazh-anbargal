@@ -1,6 +1,9 @@
 import { Card, CardContent, Typography } from "@material-ui/core";
 import { Heading, Metatags } from "../components/common";
 import Layout from "../components/Layout";
+import Image from "next/image";
+import umaBook from './images/anbargal-corner/uma-book.jpg';
+
 
 export default function AnbargalCorner() {
     return (
@@ -15,9 +18,9 @@ export default function AnbargalCorner() {
             <iframe id="chitra-murthy-books" src="./pdf/Chitra Murthy - Books.pdf" width="100%" height="600px"></iframe>
             <br />
             <Typography>
-                <h4>Uma Balasubramanian Books</h4>
+                <h4 id="uma-balasubramanian-books">Uma Balasubramanian Books</h4>
             </Typography>
-            <img id="uma-balasubramanian-books" src="./images/anbargal-corner/uma-book.jpg" />
+            <Image src={umaBook} />
             <br />
             <div id="youtube-links">
                 <Typography>
@@ -82,7 +85,7 @@ export default function AnbargalCorner() {
 
                     </iframe>
 
-                    <a href="https://drive.google.com/drive/folders/1DKrD4-0G52sddqojebfqi4Cb-62a-VxV?usp=sharing" target="_blank">
+                    <a href="https://drive.google.com/drive/folders/1DKrD4-0G52sddqojebfqi4Cb-62a-VxV?usp=sharing" target="_blank" rel="noreferrer">
                         Padma Subramanian         Kandar anubhuti with meaning
                     </a>
 

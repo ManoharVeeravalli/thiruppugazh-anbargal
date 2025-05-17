@@ -98,7 +98,7 @@ export default function Home() {
                 Srimathi DK Pattamal said
               </Typography>
               <Typography paragraph>
-                '<b>You can become a millionare overnight if you commercialise Thiruppugazh .</b>’
+                &apos;<b>You can become a millionare overnight if you commercialise Thiruppugazh .</b>&apos;
               </Typography>
               <Typography paragraph>
                 His wife and children felt, all the music and setting to ragam and thaalam happened only with divine will ,as they had never seen him practicing or singing.
