@@ -2,7 +2,7 @@ import { Card, CardContent, Typography } from "@material-ui/core";
 import { Heading, Metatags } from "../components/common";
 import Layout from "../components/Layout";
 import Image from "next/image";
-import umaBook from './images/anbargal-corner/uma-book.jpg';
+import umaBook from '../public/images/anbargal-corner/uma-book.jpg';
 
 
 export default function AnbargalCorner() {
